@@ -1,0 +1,136 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(231, 231, 216);
+  width: 98vw;
+  height: 8rem;
+  margin-bottom: 0.25rem;
+  border: 1px solid blue;
+  padding: 0 1.25rem; /* Añadido para dar espacio en los lados */
+  transition: transform 0.3s ease-in-out;
+}
+
+.userDetails {
+  display: flex;
+  align-items: center;
+  font-size: medium;
+}
+
+.userDetails h4 {
+  margin-right: 0.20rem;
+  font-size: medium;
+}
+
+.userDetails img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.favoritesSection {
+  display: flex;
+  align-items: center;
+}
+.favoritesSection h3 {
+  margin-right: 0.50rem;
+  font-size: x-large;
+}
+
+.orderButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.orderButtons {
+  margin-right: 1rem;
+  margin-top:1rem;
+  margin-bottom:10px;
+}
+.filterButtons {
+  display: flex;
+  align-items: center;
+}
+
+.filterButtons {
+  margin-right: 2rem;
+  margin-top: 1rem;
+  margin-bottom:10px;
+  justify-content: space-between;
+}
+
+
+.pageNavbutton,
+.stylSelect {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.33rem 1.25rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.12);
+  transition: 0.2s ease;
+}
+
+.pageNavbutton:hover,
+.stylSelect:hover {
+  background-color: #0056b3; /* Cambiamos el color al hacer hover */
+  text-shadow: 0 0 5px #ffffff,
+  0 0 10px #ffffff,
+  0 0 20px #ffffff;
+box-shadow: 0 0 5px #008cff,
+  0 0 10px #008cff,
+  0 0 25px #008cff,
+  0 0 50px #008cff;
+  transform: scale(1.05);
+}
+
+
+.stylSelect option {
+  background-color:  rgb(231, 231, 216);
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Media query para pantallas más pequeñas (móviles) */
+@media screen and (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    height: auto; /* Ajusta la altura automáticamente en dispositivos móviles */
+  }
+
+  .userDetails {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .userDetails h4 {
+    margin-bottom: 5px;
+  }
+  .favoritesSection h3 {
+    margin-top: 1rem;
+    font-size: x-large;
+  }
+  
+  .filterButtons {
+    margin-top: 1rem;
+    margin-bottom: 1.6rem;
+  }
+
+  
+  .orderButtons {
+    margin-top: 1rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .pageNavbutton,
+  .stylSelect {
+    width: 40%; /* Ocupa el 100% del ancho en dispositivos móviles */
+    margin-bottom: 0.6rem; /* Agrega espacio entre botones en dispositivos móviles */
+  }
+}

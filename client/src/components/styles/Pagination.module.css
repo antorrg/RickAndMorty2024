@@ -1,0 +1,42 @@
+.paginationContainer {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.paginationCutton {
+  margin: 0px;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  cursor: pointer;
+}
+
+.paginationButton.active {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.paginationButton:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.paginationButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.firstButton {
+  border-top-left-radius: 8px; 
+  border-bottom-left-radius: 8px; 
+}
+
+.lastButton {
+  border-top-right-radius: 8px; 
+  border-bottom-right-radius: 8px; 
+}

@@ -1,0 +1,35 @@
+.lButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.33rem 1.25rem;
+  margin: 0.5rem;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: transform 0.1s ease-in-out;
+}
+
+.lButton:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Escala ligeramente al hacer hover para resaltar */
+}
+
+.lButton::before {
+  content: '';
+  position: absolute;
+  top: -0.25rem;
+  left: -0.25rem;
+  right: -0.25rem;
+  bottom: -0.25rem;
+  border-radius: 0.75rem; /* Ajusta según tus preferencias */
+  background: linear-gradient(45deg, #fff, #e0e0e0);
+  z-index: -1;
+}
+
+.lButton span {
+  position: relative;
+  z-index: 1;
+}
+

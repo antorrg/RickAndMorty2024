@@ -1,0 +1,93 @@
+.cardContainer{
+    width: 15rem;
+    display: flex;  
+    flex-direction: column;
+    background-color:rgb(231, 231, 216);
+    border: 1px solid grey;
+    border-radius: 1rem;
+    padding: 1.6rem;
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    transition: transform 0.25s ease-out;
+    z-index:1;
+    margin: 0.7rem; 
+    text-decoration:none;
+}
+
+.cardContainer:hover {
+    transform: scale(1.05);
+    z-index:2;
+}
+.card {
+    width: 18rem;
+    border: 1px solid #ccc;
+    margin: 0.7rem;
+  }
+  .btn1 {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    align-items: center;
+    width: 2rem;
+    border-radius: 0.5rem;
+    padding: 5px 5px;
+    margin: 0 0.7rem;
+    cursor: pointer;
+  }
+  .btn1:hover {
+    background-color: #0056b3; /* Cambiamos el color al hacer hover */
+  }
+  
+  .btn1:active {
+    background-color: #004080; /* Cambiamos el color cuando se presiona el botón */
+  }
+  
+  
+  .btn1:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  /* Agregamos una consulta de medios para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .cardContainer {
+    width: 80%; /* Ocupa el 100% del ancho en dispositivos móviles */
+    margin: 0.7rem 0; /* Ajusta el margen para separar las tarjetas en dispositivos móviles */
+  }
+}
+
+.cardContainer:hover {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.card {
+  width: 18rem;
+  border: 1px solid #ccc;
+}
+
+.btn1 {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  align-items: center;
+  width: 2rem;
+  border-radius: 0.5rem;
+  padding: 5px 5px;
+  margin: 0 0.7rem;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  background-color: #0056b3;
+}
+
+.btn1:active {
+  background-color: #004080;
+}
+
+.btn1:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
