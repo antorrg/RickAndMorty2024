@@ -1,6 +1,6 @@
 /* stylesComp/FormEdit.module.css */
 .body {
-  background-image: url('../../../../public/de-lejos.jpg');
+  background-image: url('../../assets/de-lejos.jpg');
   background-size: cover; /* La imagen se estirará para cubrir toda la pantalla */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-position: center;
