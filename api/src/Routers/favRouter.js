@@ -1,6 +1,6 @@
 import {Router} from'express';
 import {addFavHandler, getFavHandler, delfavHandler} from '../Handlers/favHandlers/favoriteHandlers.js'
-import verifyToken from  '../utils/verifyToken.js'
+import {verifyToken} from  '../utils/index.js'
 
 const favRouter = Router();
 

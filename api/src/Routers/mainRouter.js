@@ -1,21 +1,30 @@
 import {Router}from 'express';
-import getRouter from './getRouter.js';
-import postRouter from './postRouter.js';
-import putRouter from './putRouter.js';
-import delRouter from './delRouter.js';
+import gamesRouter from './gamesRouter.js';
+import genresRouter from './genresRouter.js';
+import platformRouter from './platformRouter.js';
+import userRouter from './userRouter.js';
+import usersuRouter from './usersuRouter.js';
+import buySellRouter from './buySellRouter.js';
+import cartRouter from './cartRouter.js';
 import favRouter from './favRouter.js';
 
 
 
 const  mainRouter=Router();
 
-mainRouter.use('/', getRouter);
+mainRouter.use(gamesRouter);
 
-mainRouter.use('/post', postRouter);
+mainRouter.use(genresRouter);
 
-mainRouter.use('/put',  putRouter);
+mainRouter.use(platformRouter);
 
-mainRouter.use('/delete', delRouter);
+mainRouter.use(userRouter);
+
+mainRouter.use(usersuRouter)
+
+mainRouter.use(buySellRouter)
+
+mainRouter.use(cartRouter)
 
 mainRouter.use(favRouter);
 

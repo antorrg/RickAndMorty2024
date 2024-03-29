@@ -1,6 +1,6 @@
 import style from "./styles/NavBar.module.css";
-import LogoutButton from "./Auth0/LogoutButton";
-import { useAuth0 } from "@auth0/auth0-react";
+import GenericButton from "./GenericButton/GenericButton";
+import { useAuth } from "./Auth/AuthContext/AuthContext";
 import { Filter, Order } from "./Favorites/index";
 import { Search } from "./Index";
 import { getFavorites } from "../Redux/actions";
@@ -9,8 +9,9 @@ import { getFavorites } from "../Redux/actions";
 const UserNav = ({ setShowFavorites, showFavorites }) => {
 
  const token =localStorage.getItem('validToken')
-  const { user } = useAuth0();
+  const { user, logout } = useAuth();
   console.log(user);
+  
   const handleToggleFavorites = () => {
     setShowFavorites(!showFavorites);
     dispatch(getFavorites(token))
@@ -20,7 +21,7 @@ const UserNav = ({ setShowFavorites, showFavorites }) => {
   return (
     <div className={style.nav}>
       <div>
-        <LogoutButton />
+        <GenericButton onClick={logout} />
       </div>
       <div className={style.userDetails}>
         <h4>Bienvenido: {user.given_name ? user.given_name : user.nickname}</h4>

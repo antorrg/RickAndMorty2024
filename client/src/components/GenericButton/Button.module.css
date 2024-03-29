@@ -1,4 +1,4 @@
-.lButton {
+.button {
     /* Estilo para tu botón de cierre de sesión si es necesario */
     background-color: #007bff;
     color: #fff;
@@ -10,7 +10,7 @@
     box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.12);
     transition: 0.2s ease;
   }
-  .lButton:hover {
+  .button:hover {
     background-color: #0056b3; /* Cambiamos el color al hacer hover */
     text-shadow: 0 0 5px #ffffff,
     0 0 10px #ffffff,

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import style from './styles/Card.module.css';
-import { useAuth0 } from '@auth0/auth0-react';
+import { useAuth } from './Auth/AuthContext/AuthContext';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFav, getFavorites, removeFav } from '../Redux/actions';
@@ -8,7 +8,7 @@ import { handleApiError } from '../utils/AxiosUtils';
 
 const Card = ({ character }) => {
   const { id, name, origin, image, gender, species } = character;
-  const { isAuthenticated } = useAuth0();
+  const { authenticated } = useAuth0();
   const dispatch = useDispatch();
   const token = localStorage.getItem('validToken')
   const favorites = useSelector(state => state.myFavorites);
@@ -38,7 +38,7 @@ const Card = ({ character }) => {
 
   return (
     <div key={id} className={style.cardContainer}>
-      {isAuthenticated && (
+      {authenticated && (
         <button className={style.btn1} onClick={handleFavorite}>
           {isFav ? '❤️' : '🤍'}
         </button>

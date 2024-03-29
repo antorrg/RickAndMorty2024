@@ -13,7 +13,7 @@ import {
     GET_FAV,
     SET_TOTAL_PAGES,
 
-}from './actions-types';
+}from './actions';
 
 const initialState = {
     character :[],

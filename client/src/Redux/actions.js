@@ -1,21 +1,18 @@
 import axios from 'axios';
 import {setAuthHeader,  handleApiError} from '../utils/AxiosUtils'
-import {
-    GET_CHARACTERS,
-    SET_CURRENT_PAGE,
-    SET_BY_ID,
-    CLEAN_STATE,
-    ADD_FAV,
-    REMOVE_FAV,
-    FILTER,
-    ORDER,
-    GET_BY_NAME,
-    LOG,
-    CLEAN_LOG,
-    GET_FAV,
-    SET_TOTAL_PAGES,
-} from './actions-types';
-
+export const GET_CHARACTERS='GET_CHARACTERS';
+export const SET_CURRENT_PAGE='SET_CURRENT_PAGE';
+export const SET_BY_ID= 'SET_BY_ID';
+export const CLEAN_STATE='CLEAN_STATE';
+export const ADD_FAV ='ADD_FAV';
+export const REMOVE_FAV = 'REMOVE_FAV';
+export const FILTER = 'FILTER';
+export const ORDER ='ORDER';
+export const GET_BY_NAME='GET_BY_NAME';
+export const LOG='LOG';
+export const CLEAN_LOG='CLEAN_LOG';
+export const GET_FAV='GET_FAV';
+export const SET_TOTAL_PAGES='SET_TOTAL_PAGES,'
 
 
 export const getCharacters = () => async (dispatch)=>{

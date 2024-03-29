@@ -1,6 +1,6 @@
 import {User} from '../../database.js';
 import { Op } from 'sequelize';
-import{ getEmails} from '../../utils/createSUs.js'
+import{ getEmails} from '../../utils/index.js'
 
 const getUser = async( page, size, req, res )=>{
     const {email1, email2}=getEmails();

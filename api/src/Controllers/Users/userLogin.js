@@ -2,6 +2,7 @@ import { Op } from "sequelize";
 import { User } from "../../database.js";
 import bcrypt from "bcrypt";
 import sendEmail from "../../nodemailer/sendEmail.js";
+import {generateToken}from '../../utils/index.js'
 import dotenv from 'dotenv'
 dotenv.config()
 const saltRounds = 10; // Número de rondas de salt para bcrypt

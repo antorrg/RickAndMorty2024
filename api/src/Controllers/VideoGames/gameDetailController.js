@@ -1,5 +1,5 @@
 import { Genre, Platform, Videogame } from "../../database.js";
-import {datamaped} from "../../utils/dataMaped.js";
+import {datamaped} from "../../utils/index.js";
 
 const getGameById = async (id) => {
     try {

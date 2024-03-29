@@ -1,4 +1,5 @@
 import {Favorite, User} from '../../database.js'
+import {emptyRes} from '../../utils/index.js'
 
 const addFav = async (userId, id, name, gender,status, species, image )=>{
    
@@ -57,7 +58,7 @@ const getFav = async (userId)=>{
         }
 
         const favorites = user.Favorites; // Aquí asumimos que el alias es "Favorites"
-
+        if(favorites.length===0){return emptyRes()}
         return favorites;
     } catch (error) {
         console.error(error);

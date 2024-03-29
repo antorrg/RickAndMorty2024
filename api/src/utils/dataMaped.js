@@ -1,4 +1,6 @@
-
+import dotenv from 'dotenv'
+dotenv.config()
+const {EMPTYIMG}= process.env
 const datamaped =(info)=> {
     return{
     id: info.id,
@@ -32,8 +34,18 @@ const datamaped =(info)=> {
       
     }
    };
-  
+  const emptyRes = ()=>{
+    return {
+      id: 0,
+      name:"No hay favoritos aun",
+      gender: "",
+      status: "",
+      species: "",
+      image:`${EMPTYIMG}`,
+    }
+  }
   export {
     datamaped,
-    usermaped
+    usermaped,
+    emptyRes
   };

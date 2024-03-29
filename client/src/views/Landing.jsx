@@ -1,13 +1,13 @@
 
 import { Home, UserHome } from "./index";
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth } from "../components/Auth/AuthContext/AuthContext";
 import {enviarInfoAlServer,} from "../utils/Index";
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { login, limpiarLogin } from '../Redux/actions';
 
 const Landing = () => {
-  const { user, isAuthenticated } = useAuth0();
+  const { user, authenticated } = useAuth();
   const dispatch = useDispatch();
   console.log(user)
 
@@ -25,7 +25,7 @@ const Landing = () => {
 
   useEffect(() => {
     const fetchUserLog = async () => {
-      if (isAuthenticated) {
+      if (authenticated) {
         try {
           const result = await userLog(user);
           dispatch(login(result));
@@ -40,9 +40,9 @@ const Landing = () => {
     };
 
     fetchUserLog();
-  }, [isAuthenticated, user, dispatch]);
+  }, [authenticated, user, dispatch]);
 
-  return <div>{isAuthenticated ? <UserHome /> : <Home />}</div>;
+  return <div>{authenticated ? <UserHome /> : <Home />}</div>;
 };
 
 export default Landing;

@@ -11,7 +11,7 @@
 import server from "./src/server.js";
 import { sequelize } from "./src/database.js";
 import fillTables from "./src/Controllers/VideoGames/databaseControllers/fillTables.js";
-import {appUserTable} from './src/utils/createSUs.js';
+import {appUserTable} from './src/utils/index.js';
 import dotenv from 'dotenv'
 dotenv.config();
 const { PORT } = process.env;
