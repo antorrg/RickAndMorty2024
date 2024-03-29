@@ -34,7 +34,7 @@ const Carousel = ( {character}) => {
 
   return (
     <Slider {...settings}>
-      {character.map((char) => (
+      {character?.map((char) => (
         <Card key={char.id} character={char} />
       ))}
     </Slider>

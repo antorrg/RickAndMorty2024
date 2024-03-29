@@ -2,13 +2,13 @@ import style from './styles/LoginForm.module.css'
 import { useState } from "react";
 import GenericButton from '../GenericButton/GenericButton';
 import { useNavigate } from "react-router-dom";
-
-import {ValidLogin} from '../utils/Validate';
+import {useAuth} from './AuthContext/AuthContext'
+import {ValidLogin} from '../../utils/Validate';
 import {loginUser}from './Auth'
 
 
-const LoginForm = ({handleSignClick, auth}) => {
-  const {login}=auth;
+const LoginForm = ({handleSignClick}) => {
+  const {login}=useAuth();
   const navigate = useNavigate();
   const onClose= ()=>{
     navigate("/")
@@ -46,7 +46,7 @@ const LoginForm = ({handleSignClick, auth}) => {
         password: "",
       });
       if(user){
-      navigate("/home");
+      navigate("/");
   
       }
     //}
@@ -54,6 +54,7 @@ const LoginForm = ({handleSignClick, auth}) => {
 
 
   return (
+    <div className={style.cont}>
     <div className={style.form}>
       <form onSubmit={(event) => handleSubmit(event)}>
         <div>
@@ -89,6 +90,7 @@ const LoginForm = ({handleSignClick, auth}) => {
       </form>
       <h4>¿No tiene cuenta? Registrese:</h4>
       <GenericButton onClick={handleSignClick} buttonText={'Registrarse'} /> 
+    </div>
     </div>
   );
 };

@@ -10,25 +10,16 @@ const Landing = () => {
   const { user, authenticated } = useAuth();
   const dispatch = useDispatch();
   console.log(user)
+  console.log(authenticated)
 
 
-  const userLog = async (userData) => {
-    try {
-      const response = await enviarInfoAlServer(userData);
-      console.log(response)
-      return response;
-    } catch (error) {
-      console.error('Error en userLog:', error);
-      throw error; // Puedes manejar el error aquí según tus necesidades
-    }
-  };
 
   useEffect(() => {
     const fetchUserLog = async () => {
       if (authenticated) {
         try {
-          const result = await userLog(user);
-          dispatch(login(result));
+          
+          dispatch(login(user));
         } catch (error) {
           // Maneja el error según tus necesidades
           console.error('Error al obtener información del usuario:', error);

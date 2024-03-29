@@ -1,9 +1,9 @@
 import style from './styles/ModalEdit.module.css'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ValidCreate } from '../utils/Validate';
+import { ValidCreate } from '../../utils/Validate';
 import { createUser } from './Auth';
-import GenericButton from '../components/Buttons/GenericButton';
+import GenericButton from '../GenericButton/GenericButton';
 
 const SignInForm = ({auth}) => {
   const {login} = auth;

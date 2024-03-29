@@ -1,4 +1,5 @@
 import axios from 'axios';
+const urlRick = import.meta.env.VITE_URL2;
 import {setAuthHeader,  handleApiError} from '../utils/AxiosUtils'
 export const GET_CHARACTERS='GET_CHARACTERS';
 export const SET_CURRENT_PAGE='SET_CURRENT_PAGE';
@@ -17,7 +18,7 @@ export const SET_TOTAL_PAGES='SET_TOTAL_PAGES,'
 
 export const getCharacters = () => async (dispatch)=>{
     try {
-        const response = await axios('/api/character')
+        const response = await axios(`${urlRick}/character`)
         const data =response.data;
         return dispatch({
             type:GET_CHARACTERS,
@@ -30,7 +31,7 @@ export const getCharacters = () => async (dispatch)=>{
 }
 export const getById =(id, token)=>async(dispatch)=>{
     try {
-        const response = await axios(`/api/character/${id}`)
+        const response = await axios(`${urlRick}/character/${id}`)
         const data = response.data;
         return dispatch({
             type:SET_BY_ID,
@@ -43,7 +44,7 @@ export const getById =(id, token)=>async(dispatch)=>{
 }
 export const getByName=(name)=>async(dispatch)=>{
     try {
-        const response = await axios(`/api/character?name=${name}`)
+        const response = await axios(`${urlRick}/character?name=${name}`)
         const data =response.data;
         return dispatch({
             type:GET_BY_NAME,
@@ -90,7 +91,7 @@ export const setCurrentPage = (page) => {
 //?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 export const addFav = async (character,token)=> {
     try {
-        const data = (await axios.post(`/log/favorite`, character,setAuthHeader(token) )).data;
+        const data = (await axios.post(`/favorite`, character,setAuthHeader(token) )).data;
         return dispatch({type: ADD_FAV, 
              payload: (data)})
 
@@ -102,7 +103,7 @@ export const addFav = async (character,token)=> {
 };
 export const getFavorites = (token) => async (dispatch) => {
     try {
-      const response = await axios.get(`/log/favorite`, setAuthHeader(token));
+      const response = await axios.get(`/favorite`, setAuthHeader(token));
       const data = response.data;
       dispatch({
         type: GET_FAV,
@@ -117,7 +118,7 @@ export const getFavorites = (token) => async (dispatch) => {
 
 export const removeFav = async (id, token) => {
     try {
-      await axios.delete(`/log/favorite/${id}`, setAuthHeader(token));
+      await axios.delete(`/favorite/${id}`, setAuthHeader(token));
       dispatch({
         type: REMOVE_FAV,
         payload: id,

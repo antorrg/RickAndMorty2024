@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getByName } from "../Redux/actions";
 import { useNavigate } from "react-router-dom";
+import GenericButton from "./GenericButton/GenericButton";
 
 function SearchBar() {
   const dispatch = useDispatch();
@@ -31,6 +32,7 @@ function SearchBar() {
 
   return (
     <div className={style.searchBar}>
+      <>
       <input
         type="search"
         placeholder="Search by name..."
@@ -39,7 +41,7 @@ function SearchBar() {
         onKeyDown={handleKeyPress}
         className={style.stylSelect }
       />
-      <button onClick={handleSearch} className={style.pageNavbutton  }>Search</button>
+      <GenericButton onClick={handleSearch} buttonText={'Search'}/></>
     </div>
   );
 }

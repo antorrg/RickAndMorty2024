@@ -1,54 +1,18 @@
 .searchBar {
     float: center;
     position:relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 1rem;
     margin-left: 0.2px;
     margin-bottom: 1rem;
+    width: 350px; /* Ajusta este valor según tu preferencia */
+    padding: 8px;
+    border-radius:2rem;
   }
-  .stylSelect {
-    background-color: #f5f9fd;
-    color: #080404;
-    border: none;
-    border-radius: 8px;
-    padding: 0.33rem 1rem;
-    margin: 0.60rem;
-    cursor: pointer;
-  } 
-  
-  /* Estilo para los select deshabilitados */
-  .stylSelect:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  /* Estilo para el texto dentro de los select */
-  .stylSelect option {
-    background-color: #a2c5ea;
-    font-size: 12px;
-    font-weight: bold;
-    color: #000; /* Cambia el color del texto dentro del select según tus preferencias */
-  }
-  .pageNavbutton {
-    /* Estilo para tu botón de cierre de sesión si es necesario */
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.33rem 1.25rem;
-    margin: 0.5rem;
-    cursor: pointer;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.12);
-    transition: 0.2s ease;
-  }
-  .pageNavbutton:hover {
-    background-color: #0056b3; /* Cambiamos el color al hacer hover */
-    text-shadow: 0 0 5px #ffffff,
-    0 0 10px #ffffff,
-    0 0 20px #ffffff;
-box-shadow: 0 0 5px #008cff,
-    0 0 10px #008cff,
-    0 0 25px #008cff,
-    0 0 50px #008cff;
-    transform: scale(1.03);
-  }
-  
+ 
+
+ 
+ 
+ 

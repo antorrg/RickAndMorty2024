@@ -8,7 +8,7 @@ import { handleApiError } from '../utils/AxiosUtils';
 
 const Card = ({ character }) => {
   const { id, name, origin, image, gender, species } = character;
-  const { authenticated } = useAuth0();
+  const { authenticated } = useAuth();
   const dispatch = useDispatch();
   const token = localStorage.getItem('validToken')
   const favorites = useSelector(state => state.myFavorites);
@@ -19,7 +19,7 @@ const Card = ({ character }) => {
   const [isFav, setIsFav] = useState(isFavInitially);
   
  
-  const handleFavorite = async () => {
+  const handleFavorite = async (dispatch) => {
     try {
       if (isFav) {
         setIsFav(false);
@@ -48,7 +48,7 @@ const Card = ({ character }) => {
         <h2>{name}</h2>
       </Link>
       <img src={image} alt='Not found'/>
-      <p>Origin: {origin}</p>
+      {/* <p>Origin: {origin}</p> */}
     </div>
   );
 };

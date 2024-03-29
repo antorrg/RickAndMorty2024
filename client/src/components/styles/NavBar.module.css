@@ -1,14 +1,17 @@
 .nav {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(231, 231, 216);
+  /* background-color: rgb(231, 231, 216); */
+  background: linear-gradient(to bottom, #ffffff, #007bff); /* Agrega gradiente de color */
   width: 98vw;
   height: 8rem;
   margin-bottom: 0.25rem;
   border: 1px solid blue;
   padding: 0 1.25rem; /* Añadido para dar espacio en los lados */
   transition: transform 0.3s ease-in-out;
+  /* box-shadow: 0 4px 6px rgba(173, 172, 172, 0.1), 0 1px 3px rgba(148, 145, 145, 0.08); */
 }
 
 .userDetails {
@@ -39,6 +42,7 @@
 }
 
 .orderButtons {
+ 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,6 +59,7 @@
 }
 
 .filterButtons {
+ 
   margin-right: 2rem;
   margin-top: 1rem;
   margin-bottom:10px;
@@ -71,7 +76,7 @@
   padding: 0.33rem 1.25rem;
   margin: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.12);
+  /* box-shadow: 0 8px 10px rgba(190, 226, 250, 0.1), 0 4px 6px rgba(29, 170, 240, 0.12); */
   transition: 0.2s ease;
 }
 
@@ -90,10 +95,10 @@ box-shadow: 0 0 5px #008cff,
 
 
 .stylSelect option {
-  background-color:  rgb(231, 231, 216);
-  font-size: 0.75rem;
-  font-weight: bold;
-  color: #000;
+  background: white;
+  font-size: 1em;
+  
+  color: #0056b3;
 }
 
 /* Media query para pantallas más pequeñas (móviles) */

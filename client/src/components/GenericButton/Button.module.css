@@ -1,6 +1,8 @@
 .button {
     /* Estilo para tu botón de cierre de sesión si es necesario */
     background-color: #007bff;
+    font-size: 0.8em; /* Tamaño de la fuente */
+    font-weight: 600; /* Negrita */
     color: #fff;
     border: none;
     border-radius: 0.5rem;

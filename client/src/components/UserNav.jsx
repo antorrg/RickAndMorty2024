@@ -1,4 +1,5 @@
 import style from "./styles/NavBar.module.css";
+import { useDispatch } from "react-redux";
 import GenericButton from "./GenericButton/GenericButton";
 import { useAuth } from "./Auth/AuthContext/AuthContext";
 import { Filter, Order } from "./Favorites/index";
@@ -7,7 +8,7 @@ import { getFavorites } from "../Redux/actions";
 
 
 const UserNav = ({ setShowFavorites, showFavorites }) => {
-
+ const dispatch = useDispatch()
  const token =localStorage.getItem('validToken')
   const { user, logout } = useAuth();
   console.log(user);
@@ -16,12 +17,12 @@ const UserNav = ({ setShowFavorites, showFavorites }) => {
     setShowFavorites(!showFavorites);
     dispatch(getFavorites(token))
   };
-  
+  const button=  (showFavorites )? "Ir a Home" : "Ir a Favoritos"
   
   return (
     <div className={style.nav}>
       <div>
-        <GenericButton onClick={logout} />
+        <GenericButton onClick={logout} buttonText={'LogOut'}/>
       </div>
       <div className={style.userDetails}>
         <h4>Bienvenido: {user.given_name ? user.given_name : user.nickname}</h4>
@@ -38,14 +39,12 @@ const UserNav = ({ setShowFavorites, showFavorites }) => {
               <Filter />
             </div>
             <div className={style.orderButtons}>
-              <Order />
+              <Order/>
             </div>
           </div>
         </div>
       )}
-      <button onClick={handleToggleFavorites} className={style.pageNavbutton}>
-        {showFavorites ? "Ir a Home" : "Ir a Favoritos"}
-      </button>
+      <GenericButton onClick={handleToggleFavorites} buttonText={button}/>
       <div></div>
     </div>
   );

@@ -1,5 +1,4 @@
-import {Landing, Detail }from './views/index';
-import Login from './components/Auth/LoginForm'
+import {Landing, Detail, Form  }from './views/index';
 import {Routes, Route} from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAuth } from "./components/Auth/AuthContext/AuthContext";
@@ -22,7 +21,7 @@ function App() {
       <Route path={'/'} element= {<Landing/>}/>
       <Route path={'/:name'} element = {<Landing/>}/>
       <Route path={'/detail/:id'} element ={<Detail/>}/>
-      <Route path={'/login'} element = {<Login/>}/>
+      <Route path={'/login'} element = {<Form/>}/>
       
     </Routes>
     

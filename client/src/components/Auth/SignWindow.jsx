@@ -1,7 +1,7 @@
 
 import style from './styles/ModalEdit.module.css'
 import SignInForm from './SignInForm';
-import GenericButton from '../components/Buttons/GenericButton';
+import GenericButton from '../GenericButton/GenericButton';
 
 
 const SignWindow = ({ onClose, auth}) => {

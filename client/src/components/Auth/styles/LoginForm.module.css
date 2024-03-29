@@ -1,12 +1,43 @@
+
+.cont {
+  position: fixed;
+  top: 5%;
+  left: 15%;
+  width: 70vw;
+  height: 90vh;
+  border-radius: 5rem;
+  background-color: rgba(255, 255, 255, 0.144); /* Opacidad al 80% */
+  backdrop-filter: blur(5px); /* Difuminado de 5px */
+}
 .form{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:rgb(219, 231, 216);
+    background:  rgb(253, 234, 192);
+
     padding: 20px;
-    border: 1px solid gray;
+    border: 0px solid gray;
     border-radius:1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 
+    0 0 5px #eef7ff,
+    0 0 10px #c4e4fe,
+    0 0 15px #b8ddfb,
+    0 0 20px #89c6f8,
+    0 0 25px #56b1fb,
+    0 0 50px #008cff;
+    
   }
 
+
+  input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    font-size: 0.9rem; /* Tamaño de la fuente */
+    font-weight: 600; /* Negrita */
+    color: #0153aa;
+  }
+  

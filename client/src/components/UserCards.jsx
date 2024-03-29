@@ -10,7 +10,7 @@ const UserCards = ({ character, currentPage }) => {
   const endIndex = currentPage * 4;
 
   // Filtra los personajes según el índice de inicio y fin
-  const charactersToShow = character.slice(startIndex, endIndex);
+  const charactersToShow = character?.slice(startIndex, endIndex);
 
   return (
     <div className={style.cardList}>

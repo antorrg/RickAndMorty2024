@@ -1,18 +1,20 @@
-import style from '../components/Auth/styles/ModalEdit.module.css'
+import style from "./styles/Form.module.css";
 import {useState, useEffect}from 'react'
 import { useDispatch } from 'react-redux';
 import {LoginForm,SignWindow} from '../components/Auth/AuthIndex';
 import {useAuth}from '../components/Auth/AuthContext/AuthContext'
+import {login}from '../Redux/actions'
 
 
-const Login = () => {
+const Form = () => {
   const auth = useAuth();
   const dispatch = useDispatch();
  useEffect(()=>{
-   dispatch(getAllUsers())
+   dispatch(login())
  },[])
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const handleSignClick = () => {
     setIsModalOpen(true);
   };
@@ -21,8 +23,8 @@ const Login = () => {
     setIsModalOpen(false);
   };
   return (
-    <div>
-      <LoginForm handleSignClick= {handleSignClick} auth={auth} />
+    <div className={style.body}>
+      <LoginForm handleSignClick= {handleSignClick} />
       <div>
       {isModalOpen && <SignWindow onClose={handleSignWindowClose} auth = {auth}/>}
       </div>
@@ -30,4 +32,4 @@ const Login = () => {
     </div>
   )
 }
-export default Login;
+export default Form;

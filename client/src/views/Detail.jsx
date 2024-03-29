@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { accessInfo } from "../utils/Index";
 import { useNavigate } from "react-router-dom";
+import GenericButton from "../components/GenericButton/GenericButton";
 
 
 const Detail = () => {
@@ -43,7 +44,7 @@ const Detail = () => {
           <div className={style.cardContText}>
             <h2>{char.name}</h2>
             <div>
-            <button onClick={handleRefresh} className={style.pageDetailbutton }>Volver</button>
+              <GenericButton onClick={handleRefresh} buttonText={'Volver'}/>
             </div>
             <h3>Id: {char.id}</h3>
             <h3>Status: {char.status}</h3>

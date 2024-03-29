@@ -28,11 +28,11 @@ const initialState = {
  const reducer =(state = initialState, {type, payload})=>{
     switch(type){
         case GET_CHARACTERS:
-            console.log(payload)
+            //console.log(payload.results)
             return {
                 ...state,
-                character: payload,
-                totalPages: Math.ceil(payload.length / 4),
+                character: payload.results,
+                totalPages: Math.ceil(payload.results.length / 4),
             }
         case  SET_BY_ID:
             console.log(payload)
@@ -64,7 +64,7 @@ const initialState = {
                          allFavorites: payload
         }
         case GET_FAV:
-        console.log(payload)
+        //console.log(payload)
         return {
             ...state, 
             myFavorites:  payload,
@@ -111,7 +111,7 @@ const initialState = {
         console.log(payload)
         return{
             ...state,
-            getByName: payload,
+            getByName: payload.results,
         }
         case LOG:
             return{

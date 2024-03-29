@@ -10,7 +10,7 @@ const createUser = async(userData, login)=>{
   const name = userData.name ?? null;
   const picture = userData.picture ?? null;
   try {
-    const response = await axios.post(`/user/create`, {
+    const response = await axios.post(`/user`, {
         email,
         password,
         nickname,
@@ -19,7 +19,7 @@ const createUser = async(userData, login)=>{
     })
     if (response.status === 201) {
       const token = response.data.token;
-      const user = response.data.data;
+      const user = response.data.result.user
       login(token, user);
        showSuccess('User created successfully')
         console.log(user)
@@ -38,10 +38,10 @@ const loginUser = async(userData,login)=>{
             email,
             password,
         });
-        if (response.status === 200) {
-          console.log(response.data.data)
+        if (response.status === 201) {
+          console.log(response.data)
           const token = response.data.token;
-          const user = response.data.data;
+          const user = response.data.result.user;
           login(token, user);
           console.log(token)
           console.log("Token almacenado en localStorage:", localStorage.getItem('validToken'));
@@ -69,14 +69,3 @@ export {
     loginUser
 }
 
-// const userLog = async () => {
-//   try {
-//     const response = await localStorage.getItem(user);
-//     return response;
-//   } catch (error) {
-//     //console.error("Error en userLog:", error);
-//     throw error; // Puedes manejar el error aquí según tus necesidades
-//   }
-// };
-
-// export default userLog;

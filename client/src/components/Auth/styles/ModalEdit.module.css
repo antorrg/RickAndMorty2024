@@ -1,20 +1,31 @@
+.cont {
+  position: fixed;
+  top: 10%;
+  left: 20%;
+  width: 60vw;
+  height: 80vh;
+  background-color: rgba(255, 255, 255, 0.144); /* Opacidad al 80% */
+  backdrop-filter: blur(5px); /* Difuminado de 5px */
+}
 .modal {
   position: fixed;
   top: 50%;
   left: 50%;
+  /* font-weight: 600; */
   transform: translate(-50%, -50%);
-  background-color:rgb(219, 231, 216);
+  background:  rgb(253, 234, 192);
   padding: 20px;
-  border: 1px solid gray;
+  border: 0px solid gray;
   border-radius:1rem;
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
   box-shadow: 
-  0 0 5px rgb(246, 250, 246),
-  0 0 10px rgb(230, 254, 225),
-  0 0 15px rgb(210, 251, 201),
-  0 0 20px rgb(192, 250, 179),
-  0 0 25px rgb(155, 252, 134),
-  0 0 30px rgb(92, 178, 73);
+  0 0 5px #eef7ff,
+  0 0 10px #c4e4fe,
+  0 0 15px #b8ddfb,
+  0 0 20px #89c6f8,
+  0 0 25px #56b1fb,
+  0 0 50px #008cff;
+  
+  
   max-height: 100vh;
   overflow: auto; /* Agrega esta línea para permitir el desplazamiento (scroll) */
 }
