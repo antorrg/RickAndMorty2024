@@ -7,7 +7,7 @@ import errorEndWare from './utils/errorEndware.js';
 import validJson from './utils/validJson.js';
 
 
-server = express();
+const server = express();
 
 server.use(cors());
 server.use(helmet());
@@ -29,4 +29,4 @@ server.use(mainRouter);
 server.use(errorEndWare) // Error catching endware.
 
 
-module.exports = server;
+export default server;

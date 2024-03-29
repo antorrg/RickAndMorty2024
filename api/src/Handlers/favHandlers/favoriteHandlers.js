@@ -1,4 +1,4 @@
-const {addFav, getFav, deleteFav}= require('../../Controllers/Favorites/favoriteControllers')
+import  {addFav, getFav, deleteFav} from '../../Controllers/Favorites/favoriteControllers.js'
 
 const addFavHandler = async (req,res)=>{
     const userId = req.user.userId ;
@@ -36,7 +36,7 @@ const delfavHandler  = async (req,res)=>{
     }
 };
 
-module.exports = {
+export {
     addFavHandler, 
     getFavHandler, 
     delfavHandler

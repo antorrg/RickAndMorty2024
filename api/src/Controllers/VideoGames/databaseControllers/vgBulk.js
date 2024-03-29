@@ -1,5 +1,5 @@
-const {infoVideoGame}=require('../../../../Data/indexData');
-const {createGameDB}=require('../AdminControllers/gamesPostController');
+import {infoVideoGame} from '../../../../Data/indexData.js';
+import {createGameDB}from '../AdminControllers/gamesPostController.js';
 
 
 const vgBulk = async()=>{
@@ -17,4 +17,4 @@ for (let i = 0; i <infoVideoGame.length; i++) {
 }
 }
 
-module.exports= vgBulk;
+export default vgBulk;

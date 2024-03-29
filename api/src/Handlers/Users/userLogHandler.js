@@ -1,4 +1,4 @@
-const {userCreate, userwithPass, userWithPassLogin} = require('../../Controllers/Users/userLogin')
+import {userCreate, userwithPass, userWithPassLogin} from '../../Controllers/Users/userLogin.js'
 
 const userLogHandler = async(req,res)=>{
     const {email, password, nickname, given_name, picture, sub}=req.body;
@@ -36,7 +36,7 @@ const loginUserHand = async (req, res)=>{
 
 }
 
-module.exports = {
+export {
     userLogHandler,
     loginUserHand
 };

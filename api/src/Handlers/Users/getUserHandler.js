@@ -1,4 +1,4 @@
-const getUser = require('../../Controllers/Users/getUser')
+import getUser from'../../Controllers/Users/getUser.js'
 
 const getUserHandler = async(req, res)=>{
     const {
@@ -16,4 +16,4 @@ const getUserHandler = async(req, res)=>{
         res.status(404).json({error: error.message})
     }
 }
-module.exports=getUserHandler;
+export default getUserHandler;

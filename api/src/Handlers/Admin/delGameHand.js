@@ -1,7 +1,4 @@
-const {
-  gameDelete,
-  genreDelete,
-  platformDelete} = require("../../Controllers/VideoGames/AdminControllers/gameDelController");
+import {gameDelete, genreDelete, platformDelete} from "../../Controllers/VideoGames/AdminControllers/gameDelController.js";
 
 const delGameHand = async (req, res) => {
   const { id } = req.params;
@@ -33,7 +30,7 @@ const delPlatformHand = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   delGameHand,
   delGenreHand,
   delPlatformHand

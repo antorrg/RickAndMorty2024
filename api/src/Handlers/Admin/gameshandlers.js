@@ -1,9 +1,4 @@
-const {
-  getAllGamesAdminController,
-  getGameById,
-  genres,
-  platforms,
-} = require("../../Controllers/VideoGames/AdminControllers/gamesControllers");
+import  { getAllGamesAdminController, genres, platforms } from "../../Controllers/VideoGames/AdminControllers/gamesControllers.js";
 
 // const getGamesHandler = async (req, res) => {
 //   try {
@@ -115,7 +110,7 @@ const getPlatformHandler = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getGamesAdminHandler,
   getGenresHandler,
   getPlatformHandler,

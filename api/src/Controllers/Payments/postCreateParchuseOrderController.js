@@ -1,8 +1,9 @@
+import dotenv from 'dotenv';
+import mercadopago from "mercadopago";
 
-require ('dotenv').config();
+dotenv.config()
 const { MERCADOPAGO_ACCESS_TOKEN, PORT_MP, FRONT}=process.env;
 
-const mercadopago = require("mercadopago");
 
 const postCreateParchuseOrderController = async (
   userID,
@@ -65,4 +66,4 @@ getRouter.get("/webhook", (req, res) => res.send("webhook"));
   }
 };
 
-module.exports = postCreateParchuseOrderController;
+export default postCreateParchuseOrderController;

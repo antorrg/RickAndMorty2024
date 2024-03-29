@@ -1,4 +1,4 @@
-const { Videogame, Genre, Platform} = require("../../../database");
+import { Videogame, Genre, Platform} from "../../../database.js";
 
 const updateVideogame = async (id, newData) => {
   try {
@@ -82,7 +82,7 @@ const updatePLatform = async (id, name) => {
   }
 };
 
-module.exports = {
+export {
   updateVideogame,
   updateGenre,
   updatePLatform

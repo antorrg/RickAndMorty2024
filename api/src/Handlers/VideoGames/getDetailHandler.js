@@ -1,5 +1,5 @@
-const getGameById = require('../../Controllers/VideoGames/gameDetailController')
-const getRatedByItemIdController = require("../../Controllers/Payments/getRatedByItemIdController");
+import getGameById from '../../Controllers/VideoGames/gameDetailController.js'
+import getRatedByItemIdController from "../../Controllers/Payments/getRatedByItemIdController.js";
 
 
 const getDetailHandler = async (req, res) => {
@@ -15,4 +15,4 @@ const getDetailHandler = async (req, res) => {
       res.status(404).json({ error: error.message });
     }
   };
-  module.exports = getDetailHandler;
+ export default getDetailHandler;

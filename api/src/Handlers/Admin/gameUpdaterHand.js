@@ -1,7 +1,4 @@
-const {
-  updateVideogame,
-  updateGenre,
-  updatePLatform } = require("../../Controllers/VideoGames/AdminControllers/gameUpdController");
+import  {updateVideogame,updateGenre,updatePLatform } from "../../Controllers/VideoGames/AdminControllers/gameUpdController.js";
 
 const gameUpdaterHand = async (req, res) => {
   const { id } = req.params;
@@ -36,7 +33,7 @@ const platformUpdaterHand = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   gameUpdaterHand,
   genreUpdaterHand,
   platformUpdaterHand

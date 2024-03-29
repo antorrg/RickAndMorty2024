@@ -1,4 +1,4 @@
-const postUserRatedController = require("../../Controllers/Payments/postUserRatedController");
+import postUserRatedController from"../../Controllers/Payments/postUserRatedController.js";
 
 const postUserRatedHandler = async (req, res) => {
   const { userID, itemID, comment, score } = req.body;
@@ -17,4 +17,4 @@ const postUserRatedHandler = async (req, res) => {
   }
 };
 
-module.exports = postUserRatedHandler;
+export default postUserRatedHandler;

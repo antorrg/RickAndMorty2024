@@ -1,4 +1,4 @@
-const postVideogamesByIdsController = require("../../Controllers/VideoGames/postVideogamesByIdsController");
+import postVideogamesByIdsController from "../../Controllers/VideoGames/postVideogamesByIdsController.js";
 
 const postVideogamesByIdsHandler = async (req, res) => {
   //const { ids } = req.query;
@@ -14,4 +14,4 @@ const postVideogamesByIdsHandler = async (req, res) => {
   }
 };
 
-module.exports = postVideogamesByIdsHandler;
+export default postVideogamesByIdsHandler;

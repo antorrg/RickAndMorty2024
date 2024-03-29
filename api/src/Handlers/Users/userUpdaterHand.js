@@ -1,4 +1,4 @@
-const {userUpdController, userSUpdController}= require('../../Controllers/Users/userUpdController');
+import {userUpdController, userSUpdController} from '../../Controllers/Users/userUpdController.js';
 
 
 
@@ -25,4 +25,4 @@ const userSUpdaterHand = async(req,res)=>{
     }
 }
 
-module.exports = {userUpdaterHand, userSUpdaterHand};
+export  {userUpdaterHand, userSUpdaterHand};

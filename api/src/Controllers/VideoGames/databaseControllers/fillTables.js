@@ -1,8 +1,8 @@
 // En un archivo donde manejas las operaciones relacionadas con el llenado de datos (por ejemplo, fillData.js)
-const dataBulk = require('./dataBulk');
-const { Genre, Platform, Videogame,User} = require('../../../database'); // Importa tus modelos de tablas
-const {genresData, platformsData} = require('../../../../Data/indexData'); // Ruta relativa al archivo indexData (reune la informacion y la exporta en un objeto)
-const vgBulk = require('./vgBulk');
+import dataBulk from './dataBulk.js';
+import { Genre, Platform, Videogame,User} from '../../../database.js'; // Importa tus modelos de tablas
+import {genresData, platformsData} from '../../../../Data/indexData.js'; // Ruta relativa al archivo indexData (reune la informacion y la exporta en un objeto)
+import vgBulk from './vgBulk.js';
 
 
 
@@ -19,5 +19,5 @@ const fillTables =async (table, data)=>{
           console.log(`The Videogame table already contains data.`);//
         }
 }
-module.exports= fillTables;
+export default fillTables;
 

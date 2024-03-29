@@ -1,4 +1,4 @@
-[
+const infoVideoGame = [
 	
 	
 	{
@@ -1220,3 +1220,5 @@
 		]
 	}
 ]
+
+export default infoVideoGame

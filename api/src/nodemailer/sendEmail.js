@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
-import dotenv from dotenv
+import nodemailer from "nodemailer";
+import dotenv from 'dotenv'
 dotenv.config()
 const { USER_NODEMAILER, PASS_NODEMAILER } = process.env;
 import emailContent from "./SendEmailWelcome.js";

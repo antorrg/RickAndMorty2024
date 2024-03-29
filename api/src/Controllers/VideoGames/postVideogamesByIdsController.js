@@ -1,4 +1,4 @@
-const { Videogame, Genre, Platform } = require("../../database");
+import { Videogame, Genre, Platform } from "../../database.js";
 
 const postVideogamesByIdsController = async (ids, req, res ) => {
     console.log("ids : " + JSON.stringify(ids));
@@ -54,4 +54,4 @@ const postVideogamesByIdsController = async (ids, req, res ) => {
     }
   };
   
-  module.exports = postVideogamesByIdsController;
+ export default postVideogamesByIdsController;

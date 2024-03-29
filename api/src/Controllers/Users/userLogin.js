@@ -1,9 +1,11 @@
-const { Op } = require("sequelize");
-const { User } = require("../../database");
-const generateToken = require("../../utils/generate");
-const bcrypt = require("bcrypt");
-const sendEmail = require("../../nodemailer/sendEmail");
+import { Op } from "sequelize";
+import { User } from "../../database.js";
+import bcrypt from "bcrypt";
+import sendEmail from "../../nodemailer/sendEmail.js";
+import dotenv from 'dotenv'
+dotenv.config()
 const saltRounds = 10; // Número de rondas de salt para bcrypt
+const {IMG}=process.env;
 
 //? Funcion userLogin (para crear o validar a un usuario en base a auth0)
 
@@ -105,8 +107,7 @@ const userwithPass = async (
           password: password,
           nickname: "",
           given_name: "",
-          picture:
-            "https://res.cloudinary.com/dmhxl1rpc/image/upload/c_scale,w_250/v1701669223/gameworld/avatar_gamer.jpg",
+          picture:`${IMG}`,
           sub: "",
         });
         const result = { isCreate: true, user: newUser };
@@ -229,7 +230,7 @@ const userUpdSub = async (
   }
 };
 
-module.exports = {
+export {
   userCreate,
   userwithPass,
   userUpdPass,

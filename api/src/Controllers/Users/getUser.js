@@ -1,6 +1,6 @@
-const {User}=require('../../database');
-const { Op } = require('sequelize');
-const { getEmails}= require('../../utils/createSUs')
+import {User} from '../../database.js';
+import { Op } from 'sequelize';
+import{ getEmails} from '../../utils/createSUs.js'
 
 const getUser = async( page, size, req, res )=>{
     const {email1, email2}=getEmails();
@@ -46,4 +46,4 @@ const getUser = async( page, size, req, res )=>{
         res.status(500).send("getUser not found");
     }
 }
-module.exports= getUser;
+export default getUser;

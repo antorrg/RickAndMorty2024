@@ -1,4 +1,4 @@
-const postUserShoppingCartController = require("../../Controllers/Users/postUserShoppingCartController");
+import postUserShoppingCartController from "../../Controllers/Users/postUserShoppingCartController.js";
 
 const postUserShoppingCartHandler = async (req, res) => {
   const { userID, cartItems } = req.body;
@@ -23,4 +23,4 @@ const postUserShoppingCartHandler = async (req, res) => {
   }
 };
 
-module.exports = postUserShoppingCartHandler;
+export default postUserShoppingCartHandler;

@@ -1,5 +1,5 @@
-const { Genre, Platform, Videogame } = require("../../database");
-const {datamaped} = require("../../utils/dataMaped");
+import { Genre, Platform, Videogame } from "../../database.js";
+import {datamaped} from "../../utils/dataMaped.js";
 
 const getGameById = async (id) => {
     try {
@@ -30,4 +30,4 @@ const getGameById = async (id) => {
   };
   
 
-  module.exports=getGameById;
+export default getGameById;

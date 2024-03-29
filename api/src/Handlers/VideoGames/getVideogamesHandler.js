@@ -1,5 +1,5 @@
-const getVideogames = require("../../Controllers/VideoGames/getVideogames");
-const { Op } = require("sequelize");
+import getVideogames from "../../Controllers/VideoGames/getVideogames.js";
+import { Op } from "sequelize";
 
 const getVideogamesHandler = async (req, res) => {
   const {
@@ -76,4 +76,4 @@ const getVideogamesHandler = async (req, res) => {
   }
 };
 
-module.exports = getVideogamesHandler;
+export default getVideogamesHandler;

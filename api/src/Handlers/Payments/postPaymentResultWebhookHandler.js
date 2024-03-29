@@ -1,7 +1,7 @@
-const updateOrderStatusController = require("../../Controllers/Payments/updateOrderStatusController");
-const SendMailPurchaseResult = require("../../nodemailer/SendEmailPurchaseResult");
-const postUserShoppingCartController = require("../../Controllers/Users/postUserShoppingCartController");
-const mercadopago = require("mercadopago");
+import updateOrderStatusController from "../../Controllers/Payments/updateOrderStatusController.js";
+import SendMailPurchaseResult from"../../nodemailer/SendEmailPurchaseResult.js";
+import postUserShoppingCartController from"../../Controllers/Users/postUserShoppingCartController.js";
+import mercadopago from "mercadopago";
 
 const postPaymentResultWebhookHandler = async (req, res) => {
   
@@ -31,4 +31,4 @@ const postPaymentResultWebhookHandler = async (req, res) => {
   }
 }
 
-module.exports = postPaymentResultWebhookHandler;
+export default postPaymentResultWebhookHandler;

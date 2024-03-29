@@ -1,4 +1,4 @@
-const {Favorite, User}= require('../../database')
+import {Favorite, User} from '../../database.js'
 
 const addFav = async (userId, id, name, gender,status, species, image )=>{
    
@@ -85,7 +85,7 @@ const deleteFav = async (id, userPP)=>{
     }
 };
 
-module.exports = {
+export {
     addFav, 
     getFav, 
     deleteFav

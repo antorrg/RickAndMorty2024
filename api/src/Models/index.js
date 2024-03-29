@@ -1,12 +1,12 @@
-import CreateVideogame from './Models/videogame.js';
-import CreateGenre from './Models/genre.js';
-import CreatePlatform from './Models/platform.js';
-import CreatePurchaseOrder from './Models/purchaseOrder.js';
-import CreatePurchaseOrderItems from './Models/purchaseOrderItems.js';
-import CreateUser from './Models/user.js';
-import CreateRating from './Models/rating.js';
-import CreateCart from './Models/cart.js';
-import CreateFavorite from './Models/favorite.js';
+import CreateVideogame from './videogame.js';
+import CreateGenre from './genre.js';
+import CreatePlatform from './platform.js';
+import CreatePurchaseOrder from './purchaseOrder.js';
+import CreatePurchaseOrderItems from './purchaseOrderItems.js';
+import CreateUser from './user.js';
+import CreateRating from './rating.js';
+import CreateCart from './cart.js';
+import CreateFavorite from './favorite.js';
 
 export default {
     CreateVideogame,

@@ -1,4 +1,4 @@
-const getUserShoppingCartController = require("../../Controllers/Users/getUserShoppingCartController");
+import getUserShoppingCartController from "../../Controllers/Users/getUserShoppingCartController.js";
 
 const getUserShoppingCartHandler = async (req, res) => {
   const  { userID }  = req.params;
@@ -14,4 +14,4 @@ const getUserShoppingCartHandler = async (req, res) => {
   }
 };
 
-module.exports = getUserShoppingCartHandler;
+export default getUserShoppingCartHandler;

@@ -1,4 +1,4 @@
-const { User } = require("../../database");
+import { User } from "../../database.js";
 
 const getUserById = async (id) => {
     try {
@@ -26,4 +26,4 @@ const getUserById = async (id) => {
     }
   };
   
-  module.exports={getUserById, getAllUser};
+export {getUserById, getAllUser};

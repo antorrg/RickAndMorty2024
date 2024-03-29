@@ -1,7 +1,4 @@
-const {
-  createGameDB,
-  createGenreDB,
-  createPlatformDB} = require("../../Controllers/VideoGames/AdminControllers/gamesPostController");
+import {createGameDB,createGenreDB,createPlatformDB} from "../../Controllers/VideoGames/AdminControllers/gamesPostController.js";
 
 const createGameHandler = async (req, res) => {
   const {
@@ -59,7 +56,7 @@ const createPlatformHandler = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   createGameHandler,
   createGenreHandler,
   createPlatformHandler

@@ -1,4 +1,4 @@
-const { Videogame,Genre, Platform } = require("../../../database");
+import { Videogame,Genre, Platform } from "../../../database.js";
 
 const gameDelete = async (id) => {
   try {
@@ -59,7 +59,7 @@ const platformDelete = async (id) => {
   }
 };
 
-module.exports = { 
+export { 
   gameDelete,
   genreDelete,
   platformDelete

@@ -1,5 +1,5 @@
-const postVideogamesByIdsController = require("../../Controllers/VideoGames/postVideogamesByIdsController");
-const { PurchaseOrder, PurchaseOrderItems } = require("../../database");
+import postVideogamesByIdsController from "../../Controllers/VideoGames/postVideogamesByIdsController.js";
+import { PurchaseOrder, PurchaseOrderItems } from "../../database.js";
 
 const getParchuseOrderController = async ( orderId, req, res ) => {
   console.log("orderId: " + typeof orderId + ": " + orderId);
@@ -70,4 +70,4 @@ const getParchuseOrderController = async ( orderId, req, res ) => {
   }
 };
 
-module.exports = getParchuseOrderController;
+export default getParchuseOrderController;

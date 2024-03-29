@@ -1,4 +1,4 @@
-const { PurchaseOrder } = require("../../database");
+import { PurchaseOrder } from "../../database.js";
 
 const updateOrderProferenceIdController = async (orderId, orderPreferenceId, req, res) => {
     console.log("orderId: " + orderId);
@@ -26,4 +26,4 @@ const updateOrderProferenceIdController = async (orderId, orderPreferenceId, req
   }
 };
 
-module.exports = updateOrderProferenceIdController;
+export default updateOrderProferenceIdController;

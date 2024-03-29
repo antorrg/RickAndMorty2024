@@ -1,4 +1,4 @@
-const { Cart } = require("../../database");
+import { Cart } from "../../database.js";
 
 const postUserShoppingCartController = async (userID, cartItems, req, res) => {
 //console.log("userID: " + userID);
@@ -39,4 +39,4 @@ const postUserShoppingCartController = async (userID, cartItems, req, res) => {
   }
 };
 
-module.exports = postUserShoppingCartController;
+export default postUserShoppingCartController;

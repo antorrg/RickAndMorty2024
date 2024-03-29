@@ -1,4 +1,4 @@
-const { Rating, PurchaseOrderItems } = require("../../database");
+import { Rating, PurchaseOrderItems } from "../../database.js";
 
 const postUserRatedController = async (userID, itemID, comment, score, req, res) => {
     //const { ids } = req.body;
@@ -44,4 +44,4 @@ const postUserRatedController = async (userID, itemID, comment, score, req, res)
   }
 };
 
-module.exports = postUserRatedController;
+export default postUserRatedController;

@@ -1,10 +1,10 @@
-const genresData =require('./genres.json');
-const platformsData =require('./platforms.json');
-const infoVideoGame = require('./infoVideoGame.json')
+import genresData from './genres.js';
+import platformsData from './platforms.js';
+import  infoVideoGame from './infoVideoGame.js'
 
 
 
-module.exports = {
+export {
     genresData,
     platformsData,
     infoVideoGame

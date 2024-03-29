@@ -1,6 +1,6 @@
-const postVideogamesByIdsController = require("../../Controllers/VideoGames/postVideogamesByIdsController");
-const { PurchaseOrder, PurchaseOrderItems } = require("../../database");
-const { Op } = require("sequelize");
+import postVideogamesByIdsController from "../../Controllers/VideoGames/postVideogamesByIdsController.js";
+import { PurchaseOrder, PurchaseOrderItems } from "../../database.js";
+import { Op } from "sequelize";
 //const getOrdersByUserIdController = async ( userID, page, size, statusfilters, orderFilter, req, res ) => {
 const getOrdersByUserIdController = async ( filters, page, size, req, res ) => {
     page = +page;
@@ -88,4 +88,4 @@ const getOrdersByUserIdController = async ( filters, page, size, req, res ) => {
   }
 };
 
-module.exports = getOrdersByUserIdController;
+export default  getOrdersByUserIdController;

@@ -1,6 +1,6 @@
-const { where } = require("sequelize");
-const { Genre, Platform, Videogame } = require("../../../database");
-const {datamaped} = require("../../../utils/dataMaped");
+import { where } from "sequelize";
+import { Genre, Platform, Videogame } from "../../../database.js";
+import {datamaped} from "../../../utils/dataMaped.js";
 
 // const getAllGames = async () => {
 //   try {
@@ -153,7 +153,7 @@ const platforms = async (req, res) => {
   return platformsDb;
 };
 
-module.exports = {
+export {
   getAllGamesAdminController,
   genres,
   platforms,

@@ -1,4 +1,4 @@
-const delUser = require("../../Controllers/Users/delUser");
+import delUser from "../../Controllers/Users/delUser.js";
 
 const delUserHandler = async (req, res) => {
   const { id } = req.params;
@@ -10,4 +10,4 @@ const delUserHandler = async (req, res) => {
   }
 };
 
-module.exports = delUserHandler;
+export default delUserHandler;

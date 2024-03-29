@@ -1,5 +1,5 @@
-const {Op} = require('sequelize');
-const { Videogame, Genre, Platform } = require("../../../database");
+import {Op} from 'sequelize';
+import { Videogame, Genre, Platform } from "../../../database.js";
 
 const createGameDB = async (
   name,
@@ -90,7 +90,7 @@ const createPlatformDB = async (name) => {
 }
 };
 
-module.exports = {
+export {
   createGameDB,
   createGenreDB,
   createPlatformDB

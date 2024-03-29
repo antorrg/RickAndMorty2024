@@ -1,4 +1,4 @@
-const { User } = require('../../database');
+import { User } from '../../database.js';
 
 const delUser = async (id) => {
   try {
@@ -20,4 +20,4 @@ const delUser = async (id) => {
   }
 };
 
-module.exports = delUser;
+export default delUser;

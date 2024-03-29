@@ -1,5 +1,5 @@
-const getOrdersByUserIdController = require("../../Controllers/Payments/getOrdersByUserIdController");
-const { Op } = require("sequelize");
+import getOrdersByUserIdController from "../../Controllers/Payments/getOrdersByUserIdController.js";
+import { Op } from "sequelize";
 //Se recibe por param tanto el "collection_id/payment_id" como "external_reference"
 
 const getParchuseOrderHandler = async (req, res) => {
@@ -33,4 +33,4 @@ const getParchuseOrderHandler = async (req, res) => {
     }
   };
   
-  module.exports = getParchuseOrderHandler;
+ export default getParchuseOrderHandler;

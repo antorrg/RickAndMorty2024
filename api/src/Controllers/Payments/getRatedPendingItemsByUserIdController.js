@@ -1,5 +1,5 @@
-const postVideogamesByIdsController = require("../../Controllers/VideoGames/postVideogamesByIdsController");
-const { PurchaseOrderItems } = require("../../database");
+import postVideogamesByIdsController from "../../Controllers/VideoGames/postVideogamesByIdsController.js";
+import { PurchaseOrderItems } from "../../database.js";
 
 const getRatedPendingItemsByUserIdController = async ( userID, page, size, req, res ) => {
   page = +page;
@@ -66,4 +66,4 @@ const getRatedPendingItemsByUserIdController = async ( userID, page, size, req, 
   }
 };
 
-module.exports = getRatedPendingItemsByUserIdController;
+export default getRatedPendingItemsByUserIdController;

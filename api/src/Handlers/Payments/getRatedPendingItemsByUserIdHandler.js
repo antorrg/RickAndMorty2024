@@ -1,4 +1,4 @@
-const getRatedPendingItemsByUserIdController = require("../../Controllers/Payments/getRatedPendingItemsByUserIdController");
+import getRatedPendingItemsByUserIdController from "../../Controllers/Payments/getRatedPendingItemsByUserIdController.js";
 
 //Se recibe por param tanto el "collection_id/payment_id" como "external_reference"
 
@@ -23,4 +23,4 @@ const getRatedPendingItemsByUserIdHandler = async (req, res) => {
     }
   };
   
-  module.exports = getRatedPendingItemsByUserIdHandler;
+  export default getRatedPendingItemsByUserIdHandler;

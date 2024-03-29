@@ -1,5 +1,5 @@
-const { User } = require('../../database');
-const bcrypt = require('bcrypt');
+import { User } from '../../database.js';
+import bcrypt from'bcrypt';
 
 const authenticateAndUpdate = async (email, password, sub, additionalFields) => {
     try {
@@ -63,4 +63,4 @@ const authenticateAndUpdate = async (email, password, sub, additionalFields) => 
     }
 };
 
-module.exports = authenticateAndUpdate;
+export default authenticateAndUpdate;

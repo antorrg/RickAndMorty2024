@@ -1,5 +1,5 @@
-const { Videogame, Genre, Platform } = require("../../database");
-const { Op } = require("sequelize");
+import { Videogame, Genre, Platform } from "../../database.js";
+import { Op } from "sequelize";
 
 const getVideogames = async (
   page,
@@ -111,4 +111,4 @@ const getVideogames = async (
   }
 };
 
-module.exports = getVideogames;
+export default getVideogames;

@@ -1,6 +1,6 @@
-const postCreateParchuseOrderController = require("../../Controllers/Payments/postCreateParchuseOrderController");
-const createOrderInDBController = require("../../Controllers/Payments/createOrderInDBController");
-const updateOrderProferenceIdController = require("../../Controllers/Payments/updateOrderProferenceIdController");
+import postCreateParchuseOrderController  from "../../Controllers/Payments/postCreateParchuseOrderController.js";
+import createOrderInDBController from "../../Controllers/Payments/createOrderInDBController.js";
+import updateOrderProferenceIdController from "../../Controllers/Payments/updateOrderProferenceIdController.js";
 
 const postCreateParchuseOrderHandler = async (req, res) => {
   const { userID, userEmail, items } = req.body;
@@ -42,4 +42,4 @@ const postCreateParchuseOrderHandler = async (req, res) => {
   }
 }
 
-module.exports = postCreateParchuseOrderHandler;
+export default postCreateParchuseOrderHandler;

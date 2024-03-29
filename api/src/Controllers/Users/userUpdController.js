@@ -1,5 +1,5 @@
-const {User}=require('../../database')
-const bcrypt = require('bcrypt');
+import {User} from '../../database.js'
+import bcrypt from'bcrypt';
 
 const userUpdController = async (id, newData)=>{
     try {
@@ -93,4 +93,4 @@ const userSUpdController = async (id, newData)=>{
 }
 
 
-module.exports = {userUpdController, userSUpdController};
+export {userUpdController, userSUpdController};

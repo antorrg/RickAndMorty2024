@@ -1,4 +1,4 @@
-const getRatedByItemIdController = require("../../Controllers/Payments/getRatedByItemIdController");
+import getRatedByItemIdController from "../../Controllers/Payments/getRatedByItemIdController.js";
 
 const getRatedByItemIdHandler = async (req, res) => {
   const  { itemID }  = req.params;
@@ -14,4 +14,4 @@ const getRatedByItemIdHandler = async (req, res) => {
   }
 };
 
-module.exports = getRatedByItemIdHandler;
+export default getRatedByItemIdHandler;

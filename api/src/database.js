@@ -1,4 +1,4 @@
-const {Sequelize}=require ('sequelize');
+import {Sequelize} from 'sequelize';
 import models from './Models/index.js'
 
 import dotenv from 'dotenv';
@@ -28,7 +28,7 @@ const {DB_USER, DB_PASS, DB_HOST, DB_NAME, DB_DEPLOY}=process.env;
 
 
 
-const {Videogame, Genre, Platform, User, Rating, Favorite}= sequelize.models
+const {Videogame, Genre, Platform, User, PurchaseOrder, PurchaseOrderItems, Rating, Cart, Favorite}= sequelize.models
 
 Videogame.belongsToMany(Genre, {through: 'videogame_genre'})
 Genre.belongsToMany(Videogame, {through: 'videogame_genre'})
@@ -50,7 +50,10 @@ export {
   Genre, 
   Platform, 
   User, 
-  Rating, 
+  PurchaseOrder,
+  PurchaseOrderItems,
+  Rating,
+  Cart, 
   Favorite,
     sequelize
 }

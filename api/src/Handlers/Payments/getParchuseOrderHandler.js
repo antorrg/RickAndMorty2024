@@ -1,4 +1,4 @@
-const getParchuseOrderController = require("../../Controllers/Payments/getParchuseOrderController");
+import getParchuseOrderController from "../../Controllers/Payments/getParchuseOrderController.js";
 
 //Se recibe por param tanto el "collection_id/payment_id" como "external_reference"
 
@@ -19,4 +19,4 @@ const getParchuseOrderHandler = async (req, res) => {
     }
   };
   
-  module.exports = getParchuseOrderHandler;
+  export default getParchuseOrderHandler;

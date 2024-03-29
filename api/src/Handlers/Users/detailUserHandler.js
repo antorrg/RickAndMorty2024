@@ -1,4 +1,4 @@
-const {getUserById, getAllUser} = require('../../Controllers/Users/getUserById')
+import {getUserById, getAllUser} from '../../Controllers/Users/getUserById.js'
 
 
 const getUserDetailHand = async (req, res) => {
@@ -22,4 +22,4 @@ const getUserDetailHand = async (req, res) => {
     }
   };
 
-  module.exports = {getUserDetailHand, getUserAllHand };
+  export {getUserDetailHand, getUserAllHand };

@@ -1,5 +1,5 @@
-const { Sequelize } = require("sequelize");
-const { Rating, User } = require("../../database");
+import { Sequelize } from "sequelize";
+import { Rating, User } from "../../database.js";
 
 const getRatedByItemIdController = async (itemID, req, res) => {
   console.log("itemID 2: " + itemID);
@@ -99,4 +99,4 @@ const getRatedByItemIdController = async (itemID, req, res) => {
   }
 };
 
-module.exports = getRatedByItemIdController;
+export default getRatedByItemIdController;

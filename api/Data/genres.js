@@ -1,4 +1,4 @@
-[
+const genresData = [
   { "name": "Action" },
   { "name": "Indie" },
   { "name": "Adventure" },
@@ -19,3 +19,4 @@
   { "name": "Educational" },
   { "name": "Card" }
 ]
+export default genresData;

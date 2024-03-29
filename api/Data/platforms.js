@@ -1,4 +1,4 @@
-[
+const platformsData = [
     { "name": "PC" },
     { "name": "PlayStation 5" },
     { "name": "PlayStation 4" },
@@ -54,3 +54,4 @@
     { "name": "Linux" },
     { "name": "Windows" }
 ]
+export default platformsData

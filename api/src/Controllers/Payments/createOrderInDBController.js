@@ -1,4 +1,4 @@
-const { PurchaseOrder, PurchaseOrderItems } = require("../../database");
+import{ PurchaseOrder, PurchaseOrderItems } from "../../database.js";
 
 const createOrderInDBController = async ( userID, itemsData, req, res) => {
   
@@ -60,4 +60,4 @@ const createOrderInDBController = async ( userID, itemsData, req, res) => {
   }
 };
 
-module.exports = createOrderInDBController;
+export default createOrderInDBController;
