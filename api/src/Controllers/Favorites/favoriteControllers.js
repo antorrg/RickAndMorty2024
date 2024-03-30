@@ -10,7 +10,7 @@ const addFav = async (userId, id, name, gender,status, species, image )=>{
             const userHasFavorite = await user.hasFavorite(existingFav);
 
             if (userHasFavorite) {
-              throw new Error('El usuario ya tiene favorito' );
+              return ('Usted ya tiene ese favorito' );
             }
             try {
                 await user.addFavorite(existingFav);
