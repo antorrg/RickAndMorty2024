@@ -7,33 +7,34 @@ import style from "./styles/Home.module.css";
 
 const UserHome = () => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem('validToken')
-  const { character,myFavorites, currentPage, totalPages } = useSelector((state) => state);
+
+  const { character, myFavorites} = useSelector((state) => state);
+  const standartPage = useSelector((state)=>state.totalPages)
+
+  const currentPage = useSelector((state)=>state.currentPage);
+  const guide = currentPage? currentPage : 1;
+  const [page, setPage]= useState(guide)
+  
   const [showFavorites, setShowFavorites] = useState(false);
   const charByName = useSelector((state)=>state.getByName)
- 
   const {name}=useParams();
+
   useEffect(() => {
-    if (name) {
+    if(showFavorites){
+      dispatch(getFavorites(page))
+    } else if (name) {
       // Si hay un nombre en la URL, busca juegos por nombre
-      dispatch(getByName(name));
+      dispatch(getByName(name, page));
+
     } else {
-     
-      dispatch(getCharacters());
+
+      dispatch(getCharacters(page));
     }
-  }, [dispatch, name]);
-
-
-  useEffect(() => {
-    if (showFavorites) {
-      // Realizar la llamada a la acción getFavorites solo cuando showFavorites es true
-      dispatch(getFavorites(token));
-    } else {
-      // Realizar la llamada a la acción getCharacters solo cuando showFavorites es false
-      dispatch(getCharacters());
-    }
-  }, [dispatch, showFavorites, token]);
-
+  }, [dispatch, name, showFavorites, page, setPage]);
+  
+  const finalPage = showFavorites? Math.ceil(myFavorites.length / 20)
+  : name? Math.ceil(charByName.length / 20): standartPage;
+ 
   const currentData = showFavorites ? myFavorites : character;
 
   return (
@@ -42,8 +43,8 @@ const UserHome = () => {
         setShowFavorites={setShowFavorites}
         showFavorites={showFavorites}
       />
-      <Pagination currentPage={currentPage} totalPages={totalPages} />
-      <UserCards character={name ? charByName : currentData} currentPage={currentPage} />
+      <Pagination page={page} setPage={setPage} finalPage={finalPage} />
+      <UserCards character={name ? charByName : currentData} currentPage={page} />
     </div>
   );
 };

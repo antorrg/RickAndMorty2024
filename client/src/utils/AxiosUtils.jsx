@@ -1,7 +1,9 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const setAuthHeader = (token) => {
-  //const token = localStorage.getItem('validToken');
+
+
+const setAuthHeader = () => {
+  const token = localStorage.getItem('validToken');
   const config = {};
 
   if (token) {

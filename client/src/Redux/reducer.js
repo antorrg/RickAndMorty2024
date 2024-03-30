@@ -12,27 +12,31 @@ import {
     CLEAN_LOG,
     GET_FAV,
     SET_TOTAL_PAGES,
+    getByName,
 
 }from './actions';
 
 const initialState = {
     character :[],
-    characterById:[],
+    getByName:[],
+    myFavorites: [],
+    allFavorites: [],
     currentPage: 1,
     totalPages: 1,
-    myFavorites: [],
-   allFavorites: [],
-   getByName:[],
+    pageNumber: [],
+    stateSwitched:false,
+    characterById:[],
    loginUser:[]
 };
  const reducer =(state = initialState, {type, payload})=>{
     switch(type){
         case GET_CHARACTERS:
-            //console.log(payload.results)
+            console.log(payload.info.count)
+            let totalCount = payload.info.count
             return {
                 ...state,
                 character: payload.results,
-                totalPages: Math.ceil(payload.results.length / 4),
+                totalPages:Math.ceil(totalCount/20)
             }
         case  SET_BY_ID:
             console.log(payload)
@@ -50,10 +54,10 @@ const initialState = {
             case SET_TOTAL_PAGES:
                 return {
                   ...state,
-                  totalPages: action.payload,
+                  totalPages: payload,
                 };
 //----------------------------------------------------------
-            case CLEAN_STATE:
+    case CLEAN_STATE:
     return{
       ...state,
       characterById:[],
@@ -64,7 +68,6 @@ const initialState = {
                          allFavorites: payload
         }
         case GET_FAV:
-        //console.log(payload)
         return {
             ...state, 
             myFavorites:  payload,
@@ -109,9 +112,11 @@ const initialState = {
 
       case GET_BY_NAME:
         console.log(payload)
+        let totalCountN = getByName.length
         return{
             ...state,
             getByName: payload.results,
+            totalPages:Math.ceil(totalCountN/20)
         }
         case LOG:
             return{

@@ -16,13 +16,17 @@ export const GET_FAV='GET_FAV';
 export const SET_TOTAL_PAGES='SET_TOTAL_PAGES,'
 
 
-export const getCharacters = () => async (dispatch)=>{
+export const getCharacters = (page) => async (dispatch)=>{
     try {
-        const response = await axios(`${urlRick}/character`)
+        const response = await axios(`${urlRick}/character?page=${page}`)
         const data =response.data;
-        return dispatch({
+         dispatch({
             type:GET_CHARACTERS,
             payload:data,
+        })
+        dispatch({
+          type:SET_CURRENT_PAGE,
+          payload: page,
         })
     } catch (error) {
         handleApiError(error);
@@ -89,9 +93,9 @@ export const setCurrentPage = (page) => {
     }
    }
 //?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-export const addFav = async (character,token)=> {
+export const addFav = async (character)=> {
     try {
-        const data = (await axios.post(`/favorite`, character,setAuthHeader(token) )).data;
+        const data = (await axios.post(`/favorite`, character, setAuthHeader() )).data;
         return dispatch({type: ADD_FAV, 
              payload: (data)})
 
@@ -101,9 +105,9 @@ export const addFav = async (character,token)=> {
     }
    
 };
-export const getFavorites = (token) => async (dispatch) => {
+export const getFavorites = () => async (dispatch) => {
     try {
-      const response = await axios.get(`/favorite`, setAuthHeader(token));
+      const response = await axios.get(`/favorite`, setAuthHeader());
       const data = response.data;
       dispatch({
         type: GET_FAV,
@@ -116,9 +120,9 @@ export const getFavorites = (token) => async (dispatch) => {
   };
 
 
-export const removeFav = async (id, token) => {
+export const removeFav = async (id) => {
     try {
-      await axios.delete(`/favorite/${id}`, setAuthHeader(token));
+      await axios.delete(`/favorite/${id}`, setAuthHeader());
       dispatch({
         type: REMOVE_FAV,
         payload: id,

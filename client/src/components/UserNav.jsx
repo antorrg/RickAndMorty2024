@@ -11,7 +11,7 @@ const UserNav = ({ setShowFavorites, showFavorites }) => {
  const dispatch = useDispatch()
  const token =localStorage.getItem('validToken')
   const { user, logout } = useAuth();
-  console.log(user);
+  //console.log(user);
   
   const handleToggleFavorites = () => {
     setShowFavorites(!showFavorites);
