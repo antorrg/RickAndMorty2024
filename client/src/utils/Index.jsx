@@ -1,11 +1,10 @@
 import axios from 'axios';
-import { handleApiError } from './AxiosUtils';
+import { HandlError, showError, showInfo, showSuccess, showWarn} from '../components/Auth/HandlerError';
 
 
 const enviarInfoAlServer = async (userData) => {
-    console.log(userData);
-    
-    
+   // console.log(userData);
+
         const email = userData.email;
         const password= userData.password ?? null;
         const nickname = userData.nickname ?? null;
@@ -25,14 +24,17 @@ const enviarInfoAlServer = async (userData) => {
           });
     
           if (response.status === 201) {
+            showSuccess(message)
+            showInfo(message)
+
             const token = response.data.token;
 
-            console.log(token)
+            //console.log(token)
             localStorage.setItem('validToken', token);
 
-            console.log('Token recibido y almacenado:', token);
+            //console.log('Token recibido y almacenado:', token);
       
-            console.log('Token recibido:', token);
+             //console.log('Token recibido:', token);
            } if (response.data) {
             console.log(response.data)
             return response.data;
@@ -43,7 +45,8 @@ const enviarInfoAlServer = async (userData) => {
         }
     
     } catch (error) {
-        handleApiError(error)
+        handleError(error)
+        showError(message)
         throw error;
     }
     

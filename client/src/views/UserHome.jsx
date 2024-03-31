@@ -7,6 +7,7 @@ import style from "./styles/Home.module.css";
 
 const UserHome = () => {
   const dispatch = useDispatch();
+  const [api, setApi]= useState(true)
 
   const { character, myFavorites} = useSelector((state) => state);
   const standartPage = useSelector((state)=>state.totalPages)
@@ -18,17 +19,20 @@ const UserHome = () => {
   const [showFavorites, setShowFavorites] = useState(false);
   const charByName = useSelector((state)=>state.getByName)
   const {name}=useParams();
+  
 
   useEffect(() => {
     if(showFavorites){
-      dispatch(getFavorites(page))
+      dispatch(getFavorites())
+      setApi(false)
     } else if (name) {
       // Si hay un nombre en la URL, busca juegos por nombre
-      dispatch(getByName(name, page));
-
+      dispatch(getByName(name));
+      setApi(false)
     } else {
 
       dispatch(getCharacters(page));
+      setApi(true)
     }
   }, [dispatch, name, showFavorites, page, setPage]);
   
@@ -44,7 +48,7 @@ const UserHome = () => {
         showFavorites={showFavorites}
       />
       <Pagination page={page} setPage={setPage} finalPage={finalPage} />
-      <UserCards character={name ? charByName : currentData} currentPage={page} />
+      <UserCards character={name ? charByName : currentData} currentPage={page} api={api}/>
     </div>
   );
 };

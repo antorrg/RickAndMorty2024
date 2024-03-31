@@ -1,6 +1,7 @@
 import axios from 'axios';
 const urlRick = import.meta.env.VITE_URL2;
-import {setAuthHeader,  handleApiError} from '../utils/AxiosUtils'
+import setAuthHeader from '../utils/AxiosUtils'
+import { HandlError, showError, showInfo, showSuccess, showWarn} from '../components/Auth/HandlerError'
 export const GET_CHARACTERS='GET_CHARACTERS';
 export const SET_CURRENT_PAGE='SET_CURRENT_PAGE';
 export const SET_BY_ID= 'SET_BY_ID';
@@ -29,7 +30,7 @@ export const getCharacters = (page) => async (dispatch)=>{
           payload: page,
         })
     } catch (error) {
-        handleApiError(error);
+      HandlError(error)
         throw error; 
     }
 }
@@ -42,7 +43,7 @@ export const getById =(id, token)=>async(dispatch)=>{
             payload:data
         })
     } catch (error) {
-        handleApiError(error);
+        handleError(error);
         throw error; 
     }
 }
@@ -55,7 +56,7 @@ export const getByName=(name)=>async(dispatch)=>{
             payload:data,
         })
     } catch (error) {
-        handleApiError(error);
+        handleError(error);
         throw error; 
     }
 }
@@ -93,42 +94,60 @@ export const setCurrentPage = (page) => {
     }
    }
 //?@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-export const addFav = async (character)=> {
+export const addFav = async (character, page)=> {
     try {
         const data = (await axios.post(`/favorite`, character, setAuthHeader() )).data;
+        showSuccess(message)
+        showInfo(message)
         return dispatch({type: ADD_FAV, 
-             payload: (data)})
+             payload: (data)
+            }),
+            dispatch({
+              type:SET_CURRENT_PAGE,
+              payload: page,
+            });
 
     } catch (error) {
-          handleApiError(error);
+          handleError(error);
         throw error; 
     }
    
 };
-export const getFavorites = () => async (dispatch) => {
+export const getFavorites = (page) => async (dispatch) => {
     try {
       const response = await axios.get(`/favorite`, setAuthHeader());
       const data = response.data;
       dispatch({
+        type:SET_CURRENT_PAGE,
+        payload: page,
+      }),
+      dispatch({
         type: GET_FAV,
         payload: data,
       });
+      
     } catch (error) {
-      handleApiError(error);
+      handleError(error);
       throw error;
     }
   };
 
 
-export const removeFav = async (id) => {
+export const removeFav = async (id, page) => {
     try {
       await axios.delete(`/favorite/${id}`, setAuthHeader());
+      showSuccess(message)
+      showInfo(message)
       dispatch({
         type: REMOVE_FAV,
         payload: id,
+      }),
+      dispatch({
+        type:SET_CURRENT_PAGE,
+        payload: page,
       });
     } catch (error) {
-        handleApiError(error);
+        handleError(error);
         throw error; 
     }
   };

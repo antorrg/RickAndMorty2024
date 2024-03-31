@@ -26,12 +26,9 @@ import 'react-toastify/dist/ReactToastify.css';
     } else if (error.request) {
       // La solicitud fue realizada pero no se recibió respuesta
       toast.error('No se recibió respuesta del servidor.');
-      //alert('No se recibió respuesta del servidor. Por favor, inténtalo de nuevo más tarde.');
-     } //else {
-    //   // Error durante la configuración de la solicitud
-    //   console.error('Error durante la configuración de la solicitud:', error.message);
-    //   alert('Ocurrió un error durante la configuración de la solicitud. Por favor, inténtalo de nuevo.');
-    // }
+
+     }
+   
   };
 
 

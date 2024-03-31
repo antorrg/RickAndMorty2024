@@ -9,8 +9,8 @@ import { login, limpiarLogin } from '../Redux/actions';
 const Landing = () => {
   const { user, authenticated } = useAuth();
   const dispatch = useDispatch();
-  console.log(user)
-  console.log(authenticated)
+  //console.log(user)
+  //console.log(authenticated)
 
 
 

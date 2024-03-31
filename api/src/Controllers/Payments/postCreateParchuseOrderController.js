@@ -3,9 +3,6 @@ import mercadopago from "mercadopago";
 
 dotenv.config()
 const { MERCADOPAGO_ACCESS_TOKEN, PORT_MP, FRONT}=process.env;
-console.log(MERCADOPAGO_ACCESS_TOKEN)
-console.log(PORT_MP)
-console.log(FRONT)
 
 const postCreateParchuseOrderController = async (
   userID,

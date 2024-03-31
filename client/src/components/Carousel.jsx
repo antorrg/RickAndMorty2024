@@ -7,7 +7,7 @@ import Card from './Card'; // Asegúrate de tener la ruta correcta al componente
 import { PrevArrow, NextArrow } from './Arrows';
 
 const Carousel = ( {character, setPage}) => {
-  console.log(character)
+  //console.log(character)
   // Configuración del carrusel
   const settings = {
     dots: false,
@@ -45,15 +45,6 @@ const Carousel = ( {character, setPage}) => {
     }
   
   };
-  // useEffect(() => {
-  //   // Verificar si el último elemento de character tiene un id que sea un múltiplo de 20 menos 1
-  //   const lastCharacter = character[character.length - 1];
-  //   console.log('soy id ', lastCharacter,)
-  //   if (lastCharacter && (lastCharacter.id-1) % 20 === 0) {
-  //     // Actualizar el estado de setPage
-  //     setPage(prevPage => (prevPage === 42 ? 1 : prevPage + 1));
-  //   }
-  // }, [character, setPage]);
 
 
   return (

@@ -25,7 +25,7 @@ const interceptor = (logout) => {
     }
     
     const setAuthHeader = (token) => {
-        //const token = localStorage.getItem('validToken');
+        const token = localStorage.getItem('validToken');
         const config = {};
         
         if (token) {
@@ -41,13 +41,4 @@ const interceptor = (logout) => {
         interceptor,
         setAuthHeader
     }
-    // const redirectToLogin =  (logout) => {
-    //     // Lógica para redirigir al usuario al inicio de sesión
-    //     console.log('Console.log: Token expirado. Redirigiendo al inicio de sesión...');
-    //     setTimeout(()=>{
-    //         logout({ logoutParams: { returnTo: window.location.origin } });
-    //         localStorage.clear(); //Esto en caso de que auth0 u otro servicio no limpie el storage
-    //         window.location.reload(true);
-    //     },2000)
-        
-    // };
+  

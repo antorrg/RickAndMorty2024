@@ -64,14 +64,16 @@ const initialState = {
     }
      case ADD_FAV:
         console.log(payload)
-        return {...state, myFavorites:  payload,
-                         allFavorites: payload
+        return {...state, 
+            myFavorites:  payload,
+            allFavorites: payload
         }
         case GET_FAV:
         return {
             ...state, 
             myFavorites:  payload,
            allFavorites: payload,
+           currentPage:1,
         }
      case REMOVE_FAV: 
          let newFavorites = state.allFavorites.filter(char =>char.id !==(payload));
@@ -116,7 +118,8 @@ const initialState = {
         return{
             ...state,
             getByName: payload.results,
-            totalPages:Math.ceil(totalCountN/20)
+            totalPages:Math.ceil(totalCountN/20),
+            currentPage:1,
         }
         case LOG:
             return{
