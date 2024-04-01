@@ -38,7 +38,7 @@ const Carousel = ( {character, setPage}) => {
           const pageNumber = Math.floor((lastCharacter.id + 1) / 20+1);
           const finalNumber = lastCharacter.id===826 ? 1 : pageNumber;
           // Actualiza el estado de setPage con el número de página
-          console.log('numero de pagina: ', finalNumber)
+          //console.log('numero de pagina: ', finalNumber)
           setPage(finalNumber);
         }
       }

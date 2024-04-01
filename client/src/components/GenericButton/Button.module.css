@@ -23,3 +23,7 @@ box-shadow: 0 0 5px #008cff,
     0 0 50px #008cff;
     transform: scale(1.05);
   }
+  .button:disabled {
+    opacity: 0.5; /* Reducimos la opacidad del botón cuando está desactivado */
+    cursor: not-allowed; /* Cambiamos el cursor a 'no permitido' cuando está desactivado */
+  }
