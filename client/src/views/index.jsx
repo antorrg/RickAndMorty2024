@@ -2,7 +2,9 @@ import Home from './Home';
 import UserHome from './UserHome';
 import Detail from './Detail';
 import Landing from './Landing'
-import Form from './Form'
+import Form from './Form';
+import About from './About';
+import Error from './Error'
 
 
 export {
@@ -10,5 +12,7 @@ export {
     UserHome,
     Detail,
     Landing,
-    Form
+    Form,
+    About,
+    Error
 };
