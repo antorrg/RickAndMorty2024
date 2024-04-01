@@ -26,8 +26,8 @@ const getFavHandler  = async (req,res)=>{
 const delfavHandler  = async (req,res)=>{
     const  userPP = req.user.userId 
     const  {id}  = req.params;
-    console.log(id + ' favoritoHand')
-    console.log(userPP + ' usuarioHand')
+    //console.log(id + ' favorito Hand')
+    //console.log(userPP + ' usuarioHand')
     try {
         const del = await(deleteFav(id, userPP));
         res.status(200).json(del);

@@ -10,27 +10,28 @@ const Card = ({ character }) => {
   const { id, name, origin, image, gender, species } = character;
   const { authenticated } = useAuth();
   const dispatch = useDispatch();
-  const favorites = useSelector(state => state.myFavorites);
+  const favorites = useSelector((state) => state.allFavorites);
 
   // Verifica si el personaje actual está en la lista de favoritos
-  const isFavInitially = favorites.some(fav => fav.id === id);
+  //const isFavInitially = favorites?.some(fav => fav.id === id);
+  const isFavInitially = Array.isArray(favorites) && favorites.some(fav => fav.id === id);
+
   
   const [isFav, setIsFav] = useState(isFavInitially);
-  
+  const resetPage= 1
 
-  const handleFavorite = async () => {
+  const handleFavorite =  () => {
     try {
       if (isFav) {
         setIsFav(false);
-          await dispatch(removeFav(id));
+           dispatch(removeFav(id));
       } else {
         setIsFav(true);
-          await dispatch(addFav({ id, name, origin, image, gender, species }));
+          dispatch(addFav({ id, name, origin, image, gender, species }));
       }// Después de agregar o eliminar el favorito, obtén la lista actualizada
-        await dispatch(getFavorites(resetPage));
+        dispatch(getFavorites());
     } catch (error) {
-      handleError(error);
-      throw error;
+     console.log('estoy en home: ', error)
     }
   };
 

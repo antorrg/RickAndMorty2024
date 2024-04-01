@@ -39,18 +39,18 @@ const loginUser = async(userData,login)=>{
             password,
         });
         if (response.status === 201) {
-          console.log(response.data)
+          //console.log(response.data)
           const token = response.data.token;
           const user = response.data.result.user;
           login(token, user);
-          console.log(token)
-          console.log("Token almacenado en localStorage:", localStorage.getItem('validToken'));
+          //console.log(token)
+          //console.log("Token almacenado en localStorage:", localStorage.getItem('validToken'));
       
           
             showSuccess('Login sucessfully')
             
-            console.log(token)
-            console.log(user)
+            //console.log(token)
+            //console.log(user)
             
               return user;
         }

@@ -31,7 +31,7 @@ const initialState = {
  const reducer =(state = initialState, {type, payload})=>{
     switch(type){
         case GET_CHARACTERS:
-            console.log(payload.info.count)
+            //console.log(payload.info.count)
             let totalCount = payload.info.count
             return {
                 ...state,
@@ -39,7 +39,7 @@ const initialState = {
                 totalPages:Math.ceil(totalCount/20)
             }
         case  SET_BY_ID:
-            console.log(payload)
+            //console.log(payload)
             return {
                 ...state,
                 characterById:payload,
@@ -63,7 +63,7 @@ const initialState = {
       characterById:[],
     }
      case ADD_FAV:
-        console.log(payload)
+       //console.log(payload)
         return {...state, 
             myFavorites:  payload,
             allFavorites: payload
@@ -113,7 +113,7 @@ const initialState = {
     };
 
       case GET_BY_NAME:
-        console.log(payload)
+        //console.log(payload)
         let totalCountN = getByName.length
         return{
             ...state,

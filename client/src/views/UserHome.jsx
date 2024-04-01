@@ -9,7 +9,8 @@ const UserHome = () => {
   const dispatch = useDispatch();
   const [api, setApi]= useState(true)
 
-  const { character, myFavorites} = useSelector((state) => state);
+  const  character = useSelector((state) => state.character);
+  const  myFavorites = useSelector((state) => state.myFavorites);
   const standartPage = useSelector((state)=>state.totalPages)
 
   const currentPage = useSelector((state)=>state.currentPage);
@@ -20,10 +21,10 @@ const UserHome = () => {
   const charByName = useSelector((state)=>state.getByName)
   const {name}=useParams();
   
-
+  const initialPage = 1;
   useEffect(() => {
     if(showFavorites){
-      dispatch(getFavorites())
+      dispatch(getFavorites(initialPage))
       setApi(false)
     } else if (name) {
       // Si hay un nombre en la URL, busca juegos por nombre
@@ -36,7 +37,7 @@ const UserHome = () => {
     }
   }, [dispatch, name, showFavorites, page, setPage]);
   
-  const finalPage = showFavorites? Math.ceil(myFavorites.length / 20)
+  const finalPage = showFavorites? Math.ceil(myFavorites?.length / 20)
   : name? Math.ceil(charByName.length / 20): standartPage;
  
   const currentData = showFavorites ? myFavorites : character;
