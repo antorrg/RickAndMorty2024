@@ -34,7 +34,9 @@ const Landing = () => {
       {(inactive) => (
         <div>
           {inactive ? (
-                <h1 style={{textAlign: 'center', marginTop: '50vh'}}>Lleva tiempo inactivo, ¿desea seguir?</h1>
+                <>
+                <h2 style={{textAlign: 'center', marginTop: '50vh'}}>Lleva tiempo inactivo,¿desea seguir?</h2>
+                </>
           ) : authenticated ? (
             <UserHome />
           ) : (
@@ -47,3 +49,4 @@ const Landing = () => {
 };
 
 export default Landing;
+//

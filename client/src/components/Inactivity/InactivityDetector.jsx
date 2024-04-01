@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const InactivityDetector = ({ children, inactiveTime = 100000 }) => {
+const InactivityDetector = ({ children, inactiveTime = 6000 }) => {  //o ideal seria 900000
   const [inactive, setInactive] = useState(false);
 
   useEffect(() => {
