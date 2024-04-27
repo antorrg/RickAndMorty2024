@@ -35,14 +35,14 @@ const datamaped =(info)=> {
     }
    };
   const emptyRes = ()=>{
-    return {
+    return [{
       id: 9999,
       name:"No hay favoritos aun",
       gender: "Nada por aqui",
-      status: "Nada por allá",
+      status: "No hay favoritos aun",
       species: "Aca menos",
       image:`${EMPTYIMG}`,
-    }
+    }]
   }
   export {
     datamaped,

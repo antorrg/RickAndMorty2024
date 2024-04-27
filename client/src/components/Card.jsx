@@ -18,7 +18,6 @@ const Card = ({ character }) => {
 
   
   const [isFav, setIsFav] = useState(isFavInitially);
-  const resetPage= 1
 
   const handleFavorite =  () => {
     try {
@@ -38,7 +37,7 @@ const Card = ({ character }) => {
 
   return (
     <div key={id} className={style.cardContainer}>
-      {authenticated && (
+      {authenticated &&(
         <button className={style.btn1} onClick={handleFavorite}>
           {isFav ? '❤️' : '🤍'}
         </button>

@@ -8,11 +8,10 @@ const Pagination = ({ page, setPage, finalPage}) => {
  const currentPage = useSelector((state)=>state.currentPage);
  const actualPage = currentPage? currentPage : 1
 
+ 
 
-//console.log (currentPage)
 
-
-  return (
+  return ( 
     <div className={styles.pagination}>
     <GenericButton buttonText= 'First' onClick={() => setPage(Number(1))} disabled = {page === 1} />
     <GenericButton onClick= {()=>(setPage(Number(page-1)))} disabled = {page ===Number(1)} buttonText={'Prev'} />
