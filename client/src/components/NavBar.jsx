@@ -10,7 +10,10 @@ export default function NavBar() {
   
   return (
     <div className={style.nav}>
+      <div>
       <GenericButton onClick={()=>{navigate('/login')}}buttonText={'LogIn'} />
+      <GenericButton onClick={()=>{navigate('/about')}} buttonText={'About'}/>
+      </div>
       <div>
       <h2 className={style.favoritesSection}>Rick and Morty</h2>
       <Search />

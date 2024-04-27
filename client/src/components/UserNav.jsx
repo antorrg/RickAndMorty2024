@@ -1,4 +1,5 @@
 import style from "./styles/NavBar.module.css";
+import {useNavigate} from 'react-router-dom'
 import { useDispatch } from "react-redux";
 import GenericButton from "./GenericButton/GenericButton";
 import { useAuth } from "./Auth/AuthContext/AuthContext";
@@ -9,6 +10,7 @@ import { getFavorites } from "../Redux/actions";
 
 const UserNav = ({ setShowFavorites, showFavorites }) => {
  const dispatch = useDispatch()
+ const navigate = useNavigate()
  const token =localStorage.getItem('validToken')
   const { user, logout } = useAuth();
   //console.log(user);
@@ -23,6 +25,7 @@ const UserNav = ({ setShowFavorites, showFavorites }) => {
     <div className={style.nav}>
       <div>
         <GenericButton onClick={logout} buttonText={'LogOut'}/>
+        <GenericButton onClick={()=>{navigate('/about')}} buttonText={'About'}/>
       </div>
       <div className={style.userDetails}>
         <h4>Bienvenido: {user.given_name ? user.given_name : user.nickname}</h4>
