@@ -23,14 +23,15 @@ const postCreateParchuseOrderHandler = async (req, res) => {
 
     const createOrderDB = await createOrderInDBController(userID, auxItems/*JSON.stringify(auxItems)*/);
     //console.log("createOrderDB: " + JSON.stringify(createOrderDB));
+    if(!createOrderDB){console.error('puede ser por la primera')}
     const orderBodyMercadoPago = await postCreateParchuseOrderController(userID, userEmail, items, createOrderDB.id.toString());
-
+    if(!orderBodyMercadoPago){console.error('puede ser por la segunda')}
     const updateOrder = await updateOrderProferenceIdController(createOrderDB.id, orderBodyMercadoPago.id);
-
+    if(!updateOrder){console.error('puede ser por la tercera')}
     if(updateOrder) {
       res.status(201).json({ body: orderBodyMercadoPago});
     } else {
-      res.status(500).send("Order_not_update");
+      res.status(error.status || 500).json("Order_not_update");
     }
     
     //res.status(201).json({ body: "hi"});
@@ -38,7 +39,7 @@ const postCreateParchuseOrderHandler = async (req, res) => {
 
     //res.status(201).json({ body: orderBody});
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(error.status||400).json({ error: error.message });
   }
 }
 

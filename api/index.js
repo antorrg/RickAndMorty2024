@@ -12,17 +12,15 @@ import server from "./src/server.js";
 import { sequelize } from "./src/database.js";
 import fillTables from "./src/Controllers/VideoGames/databaseControllers/fillTables.js";
 import {appUserTable} from './src/utils/index.js';
-import dotenv from 'dotenv'
-dotenv.config();
-const { PORT } = process.env;
+import s from './src/envConfig.js'
 
 
-server.listen(PORT, async () => {
+server.listen(s.Port, async () => {
   try {
     await sequelize.sync({ force:false});
     await fillTables();
     await appUserTable();
-    console.log(`Server is running on port ${PORT} ✔️`);
+    console.log(`Server is running on port ${s.Port} ✔️\nServer ${s.Status}`);
   } catch (error) {
     console.error("Could not syncing with database");
   }

@@ -1,27 +1,21 @@
 import {Sequelize} from 'sequelize';
 import models from './Models/index.js'
-
-import dotenv from 'dotenv';
-dotenv.config()
-
-const {DB_USER, DB_PASS, DB_HOST, DB_NAME, DB_DEPLOY}=process.env;
+import env from './envConfig.js'
 
 
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}`,
-// {logging: false,
-// native:false}
-// );
+console.log('soy la database',env.ConnectDb)
+
+const sequelize = new Sequelize(env.ConnectDb,
+{logging: false,
+native:false,
+dialectOptions: env.optionRender? {
+      ssl: {
+         require: true,
+        }    
+      } : {}
+});
 
 
- const sequelize = new Sequelize(DB_DEPLOY, {
-   logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-   dialectOptions: {
-    ssl: {
-       require: true,
-      }    
-    }
-  });
 
 
  Object.values(models).forEach((model) => model(sequelize));

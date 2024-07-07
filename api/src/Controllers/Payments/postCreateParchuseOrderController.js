@@ -59,9 +59,10 @@ getRouter.get("/webhook", (req, res) => res.send("webhook"));
     //console.log(orderResult.body);
     //return orderResult.body;
     //const transactionId = orderResult.body.id;
+    if(!orderResult){const error = new Error('postCreateParchuseOrderController not found'); error.status(404); throw error;}
     return orderResult.body;
   } catch (error) {
-    res.status(500).send("postCreateParchuseOrderController not found");
+   throw error;
   }
 };
 

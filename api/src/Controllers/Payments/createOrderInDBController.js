@@ -48,15 +48,15 @@ const createOrderInDBController = async ( userID, itemsData, req, res) => {
       if(createOrderItems) {
           return createOrder;
       } else {
-          res.status(500).send("Items_not_created");    
+        const error = new Error('Items_not_created'); error.status = 500;throw error;  
       }
     } else {
-      res.status(500).send("Order_not_created");
+      const error = new Error('Order_not_created'); error.status = 500;throw error;  
     }
     //return "Order_created";
   } catch (error) {
     console.log("Error 02");
-    res.status(500).send("createOrderInDB not found");
+   throw error;
   }
 };
 

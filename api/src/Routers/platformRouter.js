@@ -1,16 +1,13 @@
 import {Router}from 'express';
-import {getPlatformHandler,} from "../Handlers/Admin/gameshandlers.js";
-import {createPlatformHandler}  from "../Handlers/Admin/gamePostHandler.js";
-import {platformUpdaterHand} from "../Handlers/Admin/gameUpdaterHand.js";
-import {delPlatformHand}from'../Handlers/Admin/delGameHand.js'
-
+import game from '../Handlers/Admin/index.js'
 import {verifyToken} from '../utils/index.js';
+
 const platformRouter = Router();
 
-platformRouter.get("/platforms", getPlatformHandler); //Protegida
-platformRouter.post("/platform", verifyToken, createPlatformHandler);
-platformRouter.put('/platform/:id', verifyToken, platformUpdaterHand); //Modulo platform
-platformRouter.delete('/platforms/:id', verifyToken, delPlatformHand);
+platformRouter.get("/platforms", game.getPlatformHandler); //Protegida
+platformRouter.post("/platform", verifyToken, game.createPlatformHandler);
+platformRouter.put('/platform/:id', verifyToken, game.platformUpdaterHand); //Modulo platform
+platformRouter.delete('/platforms/:id', verifyToken, game.delPlatformHand);
 
 
 export default platformRouter;

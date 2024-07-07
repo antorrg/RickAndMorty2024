@@ -1,15 +1,12 @@
 import {Router}from 'express';
-import { getGenresHandler} from "../Handlers/Admin/gameshandlers.js";
-import {createGenreHandler}  from "../Handlers/Admin/gamePostHandler.js";
-import {genreUpdaterHand} from "../Handlers/Admin/gameUpdaterHand.js";
-import { delGenreHand }from'../Handlers/Admin/delGameHand.js'
+import game from '../Handlers/Admin/index.js'
 
 import {verifyToken} from '../utils/index.js';
 const genresRouter = Router();
 
-genresRouter.get("/genres", getGenresHandler); //Protegida
-genresRouter.post("/genre",  verifyToken, createGenreHandler);
-genresRouter.put('/genre/:id', verifyToken, genreUpdaterHand); //Modulo genre
-genresRouter.delete('/genres/:id', verifyToken, delGenreHand);
+genresRouter.get("/genres", game.getGenresHandler); //Protegida
+genresRouter.post("/genre",  verifyToken, game.createGenreHandler);
+genresRouter.put('/genre/:id', verifyToken, game.genreUpdaterHand); //Modulo genre
+genresRouter.delete('/genres/:id', verifyToken, game.delGenreHand);
 
 export default genresRouter;

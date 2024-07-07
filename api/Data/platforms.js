@@ -1,5 +1,5 @@
 const platformsData = [
-    { "name": "PC" },
+    { "name": "PC (Windows)" },
     { "name": "PlayStation 5" },
     { "name": "PlayStation 4" },
     { "name": "PlayStation 3" },
@@ -52,6 +52,6 @@ const platformsData = [
     { "name": "Wii" },
     { "name": "Android" },
     { "name": "Linux" },
-    { "name": "Windows" }
+    { "name": "Web Browser"}
 ]
 export default platformsData

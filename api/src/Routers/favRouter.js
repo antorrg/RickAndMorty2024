@@ -1,13 +1,13 @@
 import {Router} from'express';
-import {addFavHandler, getFavHandler, delfavHandler} from '../Handlers/favHandlers/favoriteHandlers.js'
+import  fav from '../Handlers/favHandlers/favoriteHandlers.js'
 import {verifyToken} from  '../utils/index.js'
 
 const favRouter = Router();
 
-favRouter.post('/favorite', verifyToken, addFavHandler);
+favRouter.post('/favorite', verifyToken, fav.addFavHandler);
 
-favRouter.get('/favorite', verifyToken, getFavHandler);
+favRouter.get('/favorite', verifyToken, fav.getFavHandler);
 
-favRouter.delete('/favorite/:id', verifyToken, delfavHandler)
+favRouter.delete('/favorite/:id', verifyToken, fav.delfavHandler)
 
 export default favRouter;

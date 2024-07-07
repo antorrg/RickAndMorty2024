@@ -2,7 +2,7 @@ import getParchuseOrderController from "../../Controllers/Payments/getParchuseOr
 
 //Se recibe por param tanto el "collection_id/payment_id" como "external_reference"
 
-const getParchuseOrderHandler = async (req, res) => {
+const getPurchaseOrderHandler = async (req, res) => {
     const { payment_id, external_reference } = req.query;
 
     const arrayReferenceData = external_reference.split("-_");
@@ -19,4 +19,4 @@ const getParchuseOrderHandler = async (req, res) => {
     }
   };
   
-  export default getParchuseOrderHandler;
+  export default getPurchaseOrderHandler;

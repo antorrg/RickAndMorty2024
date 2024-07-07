@@ -2,7 +2,7 @@ import getOrdersByUserIdController from "../../Controllers/Payments/getOrdersByU
 import { Op } from "sequelize";
 //Se recibe por param tanto el "collection_id/payment_id" como "external_reference"
 
-const getParchuseOrderHandler = async (req, res) => {
+const getPurchaseOrderByIdHandler = async (req, res) => {
     //const  { userID }  = req.params;
     const { userID, page = 0, size = 5, status } = req.query;
     //console.log("userID: " + userID);
@@ -33,4 +33,4 @@ const getParchuseOrderHandler = async (req, res) => {
     }
   };
   
- export default getParchuseOrderHandler;
+ export default getPurchaseOrderByIdHandler;
