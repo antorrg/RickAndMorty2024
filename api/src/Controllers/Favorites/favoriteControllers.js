@@ -25,11 +25,11 @@ addFav : async (userId, id, name, gender,status, species, image )=>{
         }else{
             try {
                 const newFav = await Favorite.create({
-                    id,
-                    name,
-                    gender,
-                    status,
-                    species,
+                    id: id,
+                    name: name,
+                    gender: gender || 'unknown',
+                    status: status || 'unknown',
+                    species: species || 'unknown',
                     image
                 })
                 await user.addFavorite(newFav);
@@ -67,8 +67,8 @@ addFav : async (userId, id, name, gender,status, species, image )=>{
     }
 },
 deleteFav : async (id, userPP)=>{
-    console.log(id + ' favorito')
-    console.log(userPP + ' usuario')
+    // console.log(id + ' favorito')
+    // console.log(userPP + ' usuario')
    
     try {
         const user = await User.findByPk(userPP);

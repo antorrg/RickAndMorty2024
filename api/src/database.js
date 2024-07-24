@@ -3,7 +3,6 @@ import models from './Models/index.js'
 import env from './envConfig.js'
 
 
-console.log('soy la database',env.ConnectDb)
 
 const sequelize = new Sequelize(env.ConnectDb,
 {logging: false,

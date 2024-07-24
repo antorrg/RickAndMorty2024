@@ -1,21 +1,23 @@
 //import { verify } from 'jsonwebtoken';
 import pkg from 'jsonwebtoken';
 const { verify } = pkg;
-import dotenv from 'dotenv';
-dotenv.config();
-const { SECRET_KEY } = process.env;
+import env from '../../envConfig.js'
 
 const verifyToken = (req, res, next) => {
   // Obtén el token del encabezado de la solicitud
-  const token = req.headers['x-access-token'] || req.headers.authorization;
+  let token = req.headers['x-access-token'] || req.headers.authorization;
 
   // Verifica si el token está presente
   if (!token) {
     return res.status(401).json({ error: 'Acceso no autorizado. Token no proporcionado.' });
   }
+  if (token.startsWith('Bearer ')) {
+     // Eliminar el prefijo 'Bearer ' del token
+     token = token.slice(7, token.length);
+    }
 
       // Verifica el token
-  verify(token, SECRET_KEY, (err, decoded) => {
+  verify(token, env.SecretKey, (err, decoded) => {
     if (err) {
       if (err.name === 'TokenExpiredError') {
         return res.status(401).json({ error: 'Token expirado.' });

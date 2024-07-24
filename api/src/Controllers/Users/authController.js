@@ -19,7 +19,9 @@ const authenticateAndUpdate = async (email, password, sub, additionalFields) => 
                     // Autenticación exitosa por email y contraseña
                     return { isCreate: false, user: existingUser };
                 } else {
-                    throw new Error('Contraseña incorrecta');
+                    const error = new Error('Contraseña incorrecta'); 
+                    error.status= 400; 
+                    throw error;
                 }
             }
         }

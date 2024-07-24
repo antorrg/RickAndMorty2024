@@ -1,13 +1,11 @@
 //import { sign } from'jsonwebtoken';
 import pkg from 'jsonwebtoken';
 const { sign } = pkg;
-import dotenv from 'dotenv';
-dotenv.config();
-const {SECRET_KEY} = process.env;
+import env from '../../envConfig.js'
 
 const generateToken = (user) => {
-  const secretKey = SECRET_KEY;
-  const token = sign({ userId: user.id, email: user.email, role: user.role}, secretKey, { expiresIn: '5h' });
+
+  const token = sign({ userId: user.id, email: user.email, role: user.role}, env.SecretKey, { expiresIn: '5h' });
   return token;
 };
 

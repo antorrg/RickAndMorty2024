@@ -17,8 +17,6 @@ const userCreate = async (
   given_name,
   picture,
   sub,
-  req,
-  res
 ) => {
   try {
     // Busca el usuario por el email
@@ -32,16 +30,22 @@ const userCreate = async (
 
     if (existingUser) {
       if (existingUser.sub === "" && sub) {
-        throw new Error("Ya hay un usuario registrado con este email");
+        const error = new Error("Ya hay un usuario registrado con este email");
+        error.status= 400;
+        throw error;
       } else if (existingUser && existingUser.enable===false) {
-          throw new Error("Usuario bloqueado");
+        const error = new Error("Usuario bloqueado");
+        error.status= 400;
+        throw error;
         }else if (existingUser.sub) {
         if (existingUser.sub === sub) {
           const token = generateToken(existingUser);
           let result = { isCreate: false, user: existingUser };
           return { result, token };
         } else {
-          throw new Error("Los subs no coinciden");
+          const error = new Error("Los subs no coinciden");
+          error.status = 400;
+          throw error;
         }
       }
     } else {
@@ -69,7 +73,7 @@ const userCreate = async (
         // Agrega el token al body de la respuesta
         return { result, token };
       } catch (error) {
-        throw new Error("Error al ingresar nuevo usuario (auth0)");
+        throw error;
       }
     }
   } catch (error) {
@@ -86,9 +90,7 @@ const userwithPass = async (
   nickname,
   given_name,
   picture,
-  sub,
-  req,
-  res
+  sub
 ) => {
   // Método para registrar un nuevo usuario
   try {
@@ -165,12 +167,7 @@ const userWithPassLogin = async (email, password) => {
 const userUpdPass = async (
   email,
   password,
-  nickname,
-  given_name,
-  picture,
-  sub,
-  req,
-  res
+ 
 ) => {
   try {
     const user = await User.findOne({
