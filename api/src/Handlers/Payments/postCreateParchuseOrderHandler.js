@@ -40,7 +40,7 @@ const postCreateParchuseOrderHandler = async (req, res) => {
 
     //res.status(201).json({ body: orderBody});
   } catch (error) {
-    res.status(error.status||400).json({ error: error.message });
+    res.status(error.status||500).json({ error: error.message });
   }
 }
 

@@ -1,6 +1,6 @@
 import{ PurchaseOrder, PurchaseOrderItems } from "../../database.js";
 
-const createOrderInDBController = async ( userID, itemsData, req, res) => {
+const createOrderInDBController = async ( userID, itemsData) => {
   console.log('soy userId en el controller: ', userID)
   //console.log("itemsData: " + JSON.stringify(itemsData));
   //return "ok";
@@ -55,7 +55,7 @@ const createOrderInDBController = async ( userID, itemsData, req, res) => {
     }
     //return "Order_created";
   } catch (error) {
-    console.log("Error 02");
+    console.error("Error 02: ", error.stack);
    throw error;
   }
 };
