@@ -1,8 +1,11 @@
 import dotenv from 'dotenv';
-import mercadopago from "mercadopago";
+import {MercadoPagoConfig, Preference} from "mercadopago";
 
 dotenv.config()
 const { MERCADOPAGO_ACCESS_TOKEN, PORT_MP, FRONT}=process.env;
+const client = new MercadoPagoConfig({ accessToken: MERCADOPAGO_ACCESS_TOKEN })
+const preference = new Preference(client)
+
 
 const postCreateParchuseOrderController = async (
   userID,
@@ -16,11 +19,11 @@ const postCreateParchuseOrderController = async (
   console.log("userEmail: " + userEmail);
   //console.log("auxItems: " + JSON.stringify(auxItems));
 
-  mercadopago.configure({
-    access_token: MERCADOPAGO_ACCESS_TOKEN,
-  });
+  // mercadopago.configure({
+  //   access_token: MERCADOPAGO_ACCESS_TOKEN,
+  // });
 
-  let preference = {
+  let preferences = {
     items: items,
     /*payer: {
       name: 'João',
@@ -54,7 +57,7 @@ getRouter.get("/webhook", (req, res) => res.send("webhook"));
 	*/
 
   try {
-    const orderResult = await mercadopago.preferences.create(preference);
+    const orderResult = await preference.create({preferences});
     //const body = orderResult.body;
     //console.log(orderResult.body);
     //return orderResult.body;

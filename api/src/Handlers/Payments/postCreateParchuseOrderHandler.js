@@ -4,6 +4,7 @@ import updateOrderProferenceIdController from "../../Controllers/Payments/update
 
 const postCreateParchuseOrderHandler = async (req, res) => {
   const { userID, userEmail, items } = req.body;
+  console.log('llegue al handler: ',req.body)
 
   if(!items || items.length === 0) {
     res.status(400).json({ error: "No items attached" });

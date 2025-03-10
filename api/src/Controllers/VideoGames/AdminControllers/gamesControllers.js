@@ -100,21 +100,7 @@ const getAllGamesAdminController = async (
         auxGame.platformsText = auxGame.Platforms.join(", ");
 
         return auxGame;
-        /*return {
-                    ...game.get(),
-                    genresText: game.Genres.map((auxGenre) => {
-                        return auxGenre.name;
-                    }).join(", "),
-                    platformsText: game.Platforms.map((auxPlatf) => {
-                        return auxPlatf.name;
-                    }).join(", "),
-                    Genres: game.Genres.map((auxGenre) => {
-                        return auxGenre.name;
-                    }),
-                    Platforms: game.Platforms.map((auxGenre) => {
-                        return auxGenre.name;
-                    })
-                };*/
+      
       });
     }
     

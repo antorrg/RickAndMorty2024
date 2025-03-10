@@ -1,7 +1,7 @@
 import{ PurchaseOrder, PurchaseOrderItems } from "../../database.js";
 
 const createOrderInDBController = async ( userID, itemsData, req, res) => {
-  
+  console.log('soy userId en el controller: ', userID)
   //console.log("itemsData: " + JSON.stringify(itemsData));
   //return "ok";
   try {
