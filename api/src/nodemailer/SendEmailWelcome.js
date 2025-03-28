@@ -123,6 +123,6 @@ const emailContent = `
 
 </html>
 
-`;
+`
 
-export default emailContent;
+export default emailContent

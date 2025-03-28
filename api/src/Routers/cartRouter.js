@@ -1,13 +1,12 @@
-import { Router } from "express";
-import getUserShoppingCartHandler from "../Handlers/Users/getUserShoppingCartHandler.js";
-import postUserShoppingCartHandler  from "../Handlers/Users/postUserShoppingCartHandler.js";
-import postVideogamesByIdsHandler  from "../Handlers/VideoGames/postVideogamesByIdsHandler.js";
-import {verifyToken} from '../utils/index.js'
+import { Router } from 'express'
+import user from '../Handlers/Users/userHandlers.js'
+import vg from '../Handlers/VideoGames/index.js'
+import { verifyToken } from '../utils/index.js'
 
-const cartRouter = Router();
+const cartRouter = Router()
 
-cartRouter.get("/getUserShoppingCart/:userID", getUserShoppingCartHandler);
-cartRouter.post("/createShoppingCart", verifyToken, postUserShoppingCartHandler);
-cartRouter.post("/videogamesByIds", postVideogamesByIdsHandler);
+cartRouter.get('/getUserShoppingCart/:userID', user.getUserShoppingCartHandler)
+cartRouter.post('/createShoppingCart', verifyToken, user.postUserShoppingCartHandler)
+cartRouter.post('/videogamesByIds', vg.postVideogamesByIdsHandler)
 
-export default cartRouter;
+export default cartRouter

@@ -123,6 +123,6 @@ const purchaseEmailContent = `
 </body>
 
 </html>
-`;
+`
 
-export default purchaseEmailContent;
+export default purchaseEmailContent
