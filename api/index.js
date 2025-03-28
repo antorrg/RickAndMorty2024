@@ -7,9 +7,10 @@
                                                                                           
                                                                                                                                                         
 //-----------------------------------------------------------------------------------------
+//todo-------------------- Refactorizado el 28-03-2025 ------------------------------------
 
 import server from "./src/server.js";
-import { sequelize } from "./src/database.js";
+import { sequelize, startUp } from "./src/database.js";
 import fillTables from "./src/Controllers/VideoGames/databaseControllers/fillTables.js";
 import {appUserTable} from './src/utils/index.js';
 import s from './src/envConfig.js'
@@ -17,7 +18,9 @@ import s from './src/envConfig.js'
 
 server.listen(s.Port, async () => {
   try {
-    await sequelize.sync({ force:false});
+    await startUp()
+    if(s.Status === 'development'){
+    await sequelize.sync({ force:false});}
     await fillTables();
     await appUserTable();
     console.log(`Server is running on port ${s.Port} ✔️\nServer ${s.Status}`);

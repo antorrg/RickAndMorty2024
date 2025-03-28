@@ -37,6 +37,14 @@ Rating.belongsTo(User);
 
 Videogame.hasMany(Rating);
 Rating.belongsTo(Videogame);*/
+const startUp = async()=>{
+  try {
+    await sequelize.authenticate()
+    console.log('Database authenticated successfully ✔️')
+  } catch (error) {
+    console.error('Error in conection DB ❌')
+  }
+}
 
 export {
   Videogame, 
@@ -48,5 +56,6 @@ export {
   Rating,
   Cart, 
   Favorite,
-    sequelize
+  startUp,
+  sequelize
 }
