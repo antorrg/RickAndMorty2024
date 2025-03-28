@@ -1,16 +1,16 @@
-import pkg from 'jsonwebtoken';
-const { sign } = pkg;
-import dotenv from 'dotenv';
-dotenv.config();
-const {SECRET_KEY} = process.env;
+import pkg from 'jsonwebtoken'
+import dotenv from 'dotenv'
+const { sign } = pkg
+dotenv.config()
+const { SECRET_KEY } = process.env
 
 const generateToken = (user) => {
-  const secretKey = SECRET_KEY;
-  const token = sign({ userId: user.id, email: user.email, role: user.role }, secretKey, { expiresIn: '5h' });
-  return token;
-};
+  const secretKey = SECRET_KEY
+  const token = sign({ userId: user.id, email: user.email, role: user.role }, secretKey, { expiresIn: '5h' })
+  return token
+}
 
-export default generateToken;
+export default generateToken
 
 // const crypto = require('crypto');
 

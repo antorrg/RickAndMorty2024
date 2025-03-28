@@ -1,62 +1,61 @@
-import postVideogamesByIdsController from "../../Controllers/VideoGames/postVideogamesByIdsController.js";
-import { PurchaseOrder, PurchaseOrderItems } from "../../database.js";
+import postVideogamesByIdsController from '../../Controllers/VideoGames/postVideogamesByIdsController.js'
+import { PurchaseOrder, PurchaseOrderItems } from '../../database.js'
 
-const getParchuseOrderController = async ( orderId, req, res ) => {
-  console.log("orderId: " + typeof orderId + ": " + orderId);
+const getParchuseOrderController = async (orderId, req, res) => {
+  console.log('orderId: ' + typeof orderId + ': ' + orderId)
   try {
-    //const orderDataResult = await PurchaseOrder.findByPk(orderId);
+    // const orderDataResult = await PurchaseOrder.findByPk(orderId);
     const orderDataResult = await PurchaseOrder.findOne({
       where: {
         id: orderId
       }
-      /*through: {
+      /* through: {
         attributes: [],
-      }*/
-    });
+      } */
+    })
 
-    if(orderDataResult)
-    {
+    if (orderDataResult) {
       const orderVideogamesResult = await PurchaseOrderItems.findAll({
         where: {
-          orderId: orderId
+          orderId
         }
-        /*through: {
+        /* through: {
           attributes: [],
-        }*/
-      });
+        } */
+      })
 
-      if(orderVideogamesResult) {
-        let totalCost = 0;
+      if (orderVideogamesResult) {
+        let totalCost = 0
         const ids = orderVideogamesResult.map(item => {
-          totalCost += item.quantity * item.unitPrice;
-          return item.itemId;
-        });
-        const videogamesByIds = await postVideogamesByIdsController(ids);
-        if(videogamesByIds) {
+          totalCost += item.quantity * item.unitPrice
+          return item.itemId
+        })
+        const videogamesByIds = await postVideogamesByIdsController(ids)
+        if (videogamesByIds) {
           const videogamesResult = videogamesByIds.map(item => {
-            const auxObj = orderVideogamesResult.find(obj => obj.itemId === item.id);
+            const auxObj = orderVideogamesResult.find(obj => obj.itemId === item.id)
             return {
               ...item,
               quantity: auxObj.quantity,
               unitPrice: auxObj.unitPrice,
               currencyId: auxObj.currencyId
-            };
-          });
-          orderDataResult.totalCost = totalCost;
+            }
+          })
+          orderDataResult.totalCost = totalCost
           return {
             orderData: orderDataResult,
             videogamesData: videogamesResult
-          };
+          }
         } else {
-          res.status(500).send("No_videogames_data");
+          res.status(500).send('No_videogames_data')
         }
       } else {
-        res.status(500).send("No_videogamesInOrder_exists");
+        res.status(500).send('No_videogamesInOrder_exists')
       }
     } else {
-      res.status(500).send("No_order_exists");
+      res.status(500).send('No_order_exists')
     }
-    /*const { count, rows } = await PurchaseOrder.findAndCountAll({
+    /* const { count, rows } = await PurchaseOrder.findAndCountAll({
       where: {
         id: orderId
       }
@@ -64,10 +63,10 @@ const getParchuseOrderController = async ( orderId, req, res ) => {
 
     return {
       order: rows
-    };*/
+    }; */
   } catch (error) {
-    res.status(500).send("getVideogames not found");
+    res.status(500).send('getVideogames not found')
   }
-};
+}
 
-export default getParchuseOrderController;
+export default getParchuseOrderController

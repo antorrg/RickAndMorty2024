@@ -1,15 +1,14 @@
-//import { sign } from'jsonwebtoken';
-import pkg from 'jsonwebtoken';
-const { sign } = pkg;
+// import { sign } from'jsonwebtoken';
+import pkg from 'jsonwebtoken'
 import env from '../../envConfig.js'
+const { sign } = pkg
 
 const generateToken = (user) => {
+  const token = sign({ userId: user.id, email: user.email, role: user.role }, env.SecretKey, { expiresIn: '5h' })
+  return token
+}
 
-  const token = sign({ userId: user.id, email: user.email, role: user.role}, env.SecretKey, { expiresIn: '5h' });
-  return token;
-};
-
-export default  generateToken;
+export default generateToken
 
 // const crypto = require('crypto');
 

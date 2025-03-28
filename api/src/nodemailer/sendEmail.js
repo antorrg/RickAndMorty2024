@@ -1,43 +1,43 @@
-import nodemailer from "nodemailer";
+import nodemailer from 'nodemailer'
 import dotenv from 'dotenv'
+import emailContent from './SendEmailWelcome.js'
 dotenv.config()
-const { USER_NODEMAILER, PASS_NODEMAILER } = process.env;
-import emailContent from "./SendEmailWelcome.js";
+const { USER_NODEMAILER, PASS_NODEMAILER } = process.env
 
-async function sendEmailWelcome(userEmail) {
+async function sendEmailWelcome (userEmail) {
   const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     requireTLS: true,
-    service: "Gmail",
+    service: 'Gmail',
     auth: {
       user: USER_NODEMAILER,
-      pass: PASS_NODEMAILER,
+      pass: PASS_NODEMAILER
     },
     tls: {
-      rejectUnauthorized: false,
-    },
-  });
+      rejectUnauthorized: false
+    }
+  })
 
   const mailSend = {
     from: PASS_NODEMAILER,
-    //? correo de test comentar y descomentar la siguiente linea pero actualmente envía a spam
-    //to: "yawon80039@jalunaki.com",
-    //? descomentar para enviar al correo del usuario que se registra
+    // ? correo de test comentar y descomentar la siguiente linea pero actualmente envía a spam
+    // to: "yawon80039@jalunaki.com",
+    // ? descomentar para enviar al correo del usuario que se registra
     to: userEmail,
-    subject: "GameWorld - ¡Bienvenido!",
+    subject: 'GameWorld - ¡Bienvenido!',
     // text: "¡Bienvenido a GameWorld " + userNickname + "!",
-    html: emailContent,
-  };
+    html: emailContent
+  }
 
   transporter.sendMail(mailSend, (error, info) => {
     if (error) {
-      console.log("Error al enviar el correo electrónico:", error);
+      console.log('Error al enviar el correo electrónico:', error)
     } else {
-      console.log("Correo enviado con éxito a ", userEmail, info.response);
+      console.log('Correo enviado con éxito a ', userEmail, info.response)
     }
-  });
+  })
 }
 
-export default sendEmailWelcome;
+export default sendEmailWelcome

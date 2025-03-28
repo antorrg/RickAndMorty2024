@@ -1,6 +1,6 @@
-import { where } from "sequelize";
-import { Genre, Platform, Videogame } from "../../../database.js";
-import {datamaped} from "../../../utils/index.js";
+import { where } from 'sequelize'
+import { Genre, Platform, Videogame } from '../../../database.js'
+import { datamaped } from '../../../utils/index.js'
 
 // const getAllGames = async () => {
 //   try {
@@ -38,13 +38,13 @@ const getAllGamesAdminController = async (
   req,
   res
 ) => {
-  page = +page;
-  size = +size;
+  page = +page
+  size = +size
 
   try {
-    const videogames = await Videogame.findAll({attributes: ["name"], where: {deleteAt: false}});
-    const nombres = videogames?.map(videogame => videogame.get({ plain: true })).map(vg=>vg.name);
-    console.log(nombres);
+    const videogames = await Videogame.findAll({ attributes: ['name'], where: { deleteAt: false } })
+    const nombres = videogames?.map(videogame => videogame.get({ plain: true })).map(vg => vg.name)
+    console.log(nombres)
 
     const { count, rows } = await Videogame.findAndCountAll({
       where: filters,
@@ -52,63 +52,62 @@ const getAllGamesAdminController = async (
       include: [
         {
           model: Genre,
-          attributes: ["name"],
-          where: { 
+          attributes: ['name'],
+          where: {
             ...genresFilters,
-            deleteAt: false, // Agrega la condición deleteAt: false para Genre
+            deleteAt: false // Agrega la condición deleteAt: false para Genre
           },
-          //where: genresFilters,
-          /*where: {
+          // where: genresFilters,
+          /* where: {
                         //name: ["Actions", "Puzzle", "Indie"]
                         name: { [Op.in]: ["Actions", "Puzzle", "Indie"] }
-                    },*/
+                    }, */
           through: {
-            attributes: [],
-          },
+            attributes: []
+          }
         },
         {
           model: Platform,
-          attributes: ["name"],
-          where: { 
+          attributes: ['name'],
+          where: {
             ...platformsFilters,
-            deleteAt: false, // Agrega la condición deleteAt: false para Platform
+            deleteAt: false // Agrega la condición deleteAt: false para Platform
           },
-          //where: platformsFilters,
+          // where: platformsFilters,
           through: {
-            attributes: [],
-          },
-        },
+            attributes: []
+          }
+        }
       ],
       limit: size,
       offset: page * size,
-      distinct: true,
-    });
+      distinct: true
+    })
 
-    let videogamesData = [];
+    let videogamesData = []
     if (count) {
       videogamesData = rows.map((game) => {
-        let auxGame = { ...game.get() }; //En el contexto de Sequelize, el método .get() se utiliza para obtener una representación simple del modelo, excluyendo las propiedades y métodos internos de Sequelize. Cuando se realiza una consulta con Sequelize, el resultado incluye instancias del modelo, y el método .get() se utiliza para obtener un objeto plano que representa los datos del modelo sin las propiedades y métodos internos de Sequelize.
+        const auxGame = { ...game.get() } // En el contexto de Sequelize, el método .get() se utiliza para obtener una representación simple del modelo, excluyendo las propiedades y métodos internos de Sequelize. Cuando se realiza una consulta con Sequelize, el resultado incluye instancias del modelo, y el método .get() se utiliza para obtener un objeto plano que representa los datos del modelo sin las propiedades y métodos internos de Sequelize.
 
         auxGame.Genres = game.Genres.map((auxGenre) => {
-          return auxGenre.name;
-        });
+          return auxGenre.name
+        })
         auxGame.Platforms = game.Platforms.map((auxGenre) => {
-          return auxGenre.name;
-        });
+          return auxGenre.name
+        })
 
-        auxGame.genresText = auxGame.Genres.join(", ");
-        auxGame.platformsText = auxGame.Platforms.join(", ");
+        auxGame.genresText = auxGame.Genres.join(', ')
+        auxGame.platformsText = auxGame.Platforms.join(', ')
 
-        return auxGame;
-      
-      });
+        return auxGame
+      })
     }
-    
-    const auxTotalPages = Math.ceil(count / size);
-    const auxPrevPage = page - 1 >= 0 ? page - 1 : -1;
-    const auxNextPage = page + 1 <= auxTotalPages ? page + 1 : -1;
-    const auxHasPrevPage = page - 1 >= 0 ? true : false;
-    const auxHasNextPage = page + 1 < auxTotalPages ? true : false;
+
+    const auxTotalPages = Math.ceil(count / size)
+    const auxPrevPage = page - 1 >= 0 ? page - 1 : -1
+    const auxNextPage = page + 1 <= auxTotalPages ? page + 1 : -1
+    const auxHasPrevPage = page - 1 >= 0
+    const auxHasNextPage = page + 1 < auxTotalPages
 
     return {
       videogames: videogamesData,
@@ -121,26 +120,26 @@ const getAllGamesAdminController = async (
         hasPrevPage: auxHasPrevPage,
         hasNextPage: auxHasNextPage,
         prevPage: auxPrevPage,
-        nextPage: auxNextPage,
-      },
-    };
+        nextPage: auxNextPage
+      }
+    }
   } catch (error) {
-    res.status(500).send("getVideogames not found");
+    res.status(500).send('getVideogames not found')
   }
 }
 
 const genres = async (req, res) => {
-  const genresDb = await Genre.findAll({where: {deleteAt: false}, order: [['name', 'ASC']]});
-  return genresDb;
-};
+  const genresDb = await Genre.findAll({ where: { deleteAt: false }, order: [['name', 'ASC']] })
+  return genresDb
+}
 
 const platforms = async (req, res) => {
-  const platformsDb = await Platform.findAll({where: {deleteAt: false}, order: [['name', 'ASC']]});
-  return platformsDb;
-};
+  const platformsDb = await Platform.findAll({ where: { deleteAt: false }, order: [['name', 'ASC']] })
+  return platformsDb
+}
 
 export {
   getAllGamesAdminController,
   genres,
-  platforms,
-};
+  platforms
+}

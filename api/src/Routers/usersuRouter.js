@@ -1,10 +1,10 @@
-import { Router} from "express";
-import {getUserAllHand} from "../Handlers/Users/detailUserHandler.js";
-import {userSUpdaterHand} from '../Handlers/Users/userUpdaterHand.js'
-import {validUserSu}  from '../utils/index.js'
-const usersuRouter = Router();
+import { Router } from 'express'
+import user from '../Handlers/Users/userHandlers.js'
+import { validUserSu } from '../utils/index.js'
 
-usersuRouter.get("/usersu",   validUserSu , getUserAllHand) //Protegida
-usersuRouter.put("/usersu/:id",   validUserSu , userSUpdaterHand) //Protegida
+const usersuRouter = Router()
 
-export default usersuRouter;
+usersuRouter.get('/usersu', validUserSu, user.getUserAllHand) // Protegida
+usersuRouter.put('/usersu/:id', validUserSu, user.userSUpdaterHand) // Protegida
+
+export default usersuRouter
